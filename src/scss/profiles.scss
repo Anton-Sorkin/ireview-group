@@ -1,0 +1,50 @@
+.profile-cnt {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: #303030;
+}
+
+.profile-card-cnt {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	width: 45%;
+	height: 80%;
+	border: 2px solid yellow;
+}
+
+.user-bundle-cnt {
+	display: flex;
+	flex-direction: row;
+}
+
+.profile-pic-cnt {
+	width: 10rem;
+	height: auto;
+	border: 5px solid red;
+}
+
+.profile-pic {
+	width: 100%;
+}
+
+.user-info-cnt {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid green;
+	gap: 1em;
+}
+
+.span-user-name {
+	font-weight: 300;
+	font-size: 1.2rem;
+}
+
+.span-quote {
+	font-weight: 100;
+	font-style: italic;
+	font-size: 1.2rem;
+}

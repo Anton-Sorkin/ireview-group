@@ -14,6 +14,7 @@ const utils = require("./utils/utils.js");
 //route requirements
 const adminsRoute = require("./routes/adminsRoute");
 const errorRoute = require("./routes/errorRoute");
+const profilesRoute = require("./routes/profilesRoute");
 
 //app init
 const app = express();
@@ -29,16 +30,17 @@ app.use(cParser());
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("home");
+	res.render("home");
 });
 
 //routes
 app.use("/admin", adminsRoute);
+app.use("/profiles", profilesRoute);
 
 //error route, always last
 app.use("*", errorRoute);
 
 //port
 app.listen(8000, () => {
-  console.log("http://localhost:8000/");
+	console.log("http://localhost:8000/");
 });
