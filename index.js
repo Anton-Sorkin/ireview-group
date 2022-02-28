@@ -15,6 +15,8 @@ const utils = require("./utils/utils.js");
 const adminsRoute = require("./routes/adminsRoute");
 const errorRoute = require("./routes/errorRoute");
 const profilesRoute = require("./routes/profilesRoute");
+const registerRoute = require("./routes/registerRoute");
+const loginRoute = require("./routes/loginRoute");
 
 //app init
 const app = express();
@@ -36,6 +38,8 @@ app.get("/", (req, res) => {
 //routes
 app.use("/admin", adminsRoute);
 app.use("/profiles", profilesRoute);
+app.use("/register", registerRoute);
+app.use("/login", loginRoute);
 
 //error route, always last
 app.use("*", errorRoute);
