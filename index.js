@@ -1,4 +1,4 @@
-//config
+// CONFIG
 require("dotenv").config();
 require("./database.js");
 
@@ -8,7 +8,7 @@ const hbars = require("express-handlebars");
 const jwt = require("jsonwebtoken");
 const cParser = require("cookie-parser");
 
-//utils
+// UTILS
 const utils = require("./utils/utils.js");
 
 //route requirements
@@ -18,15 +18,15 @@ const profilesRoute = require("./routes/profilesRoute");
 const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
 
-//app init
+// APP INIT
 const app = express();
 
-//view engine
+// VIEW ENGINE
 app.engine("hbs", hbars.engine({ extname: "hbs", defaultLayout: "main" }));
 
 app.set("view engine", "hbs");
 
-//middlewares
+// MIDDLEWARES
 app.use(express.urlencoded({ extended: true }));
 app.use(cParser());
 app.use(express.static("public"));
@@ -35,16 +35,16 @@ app.get("/", (req, res) => {
 	res.render("home");
 });
 
-//routes
+// ROUTES
 app.use("/admin", adminsRoute);
 app.use("/profiles", profilesRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 
-//error route, always last
+// ERROR ROUTE
 app.use("*", errorRoute);
 
-//port
+// LISTENING PORT
 app.listen(8000, () => {
 	console.log("http://localhost:8000/");
 });
