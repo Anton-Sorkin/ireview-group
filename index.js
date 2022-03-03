@@ -17,6 +17,7 @@ const errorRoute = require("./routes/errorRoute");
 const profilesRoute = require("./routes/profilesRoute");
 const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
+const frontPageRoute = require("./routes/front-pageRoute");
 
 //app init
 const app = express();
@@ -40,6 +41,7 @@ app.use("/admin", adminsRoute);
 app.use("/profiles", profilesRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
+app.use("/front-page", frontPageRoute);
 
 //error route, always last
 app.use("*", errorRoute);

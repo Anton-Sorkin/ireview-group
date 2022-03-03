@@ -9,6 +9,9 @@ body {
 	font-family: "Roboto", sans-serif;
 	font-size: 12pt;
 	display: flex;
+	flex-direction: column;
 }
 
 @import "./profiles.scss";
+@import "./front-page.scss";
+@import "./nav-bar.scss";
