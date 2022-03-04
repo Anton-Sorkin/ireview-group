@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-	const { username, password, confirmPassword } = req.body;
+	const { username, password, confirmPassword, secret } = req.body;
 
 	UsersModel.findOne({ username }, async (err, user) => {
 		if (user) {
@@ -20,11 +20,12 @@ router.post("/", async (req, res) => {
 			const newUser = new UsersModel({
 				username,
 				hashedPassword: utils.hashPassword(password),
+				secret,
 			});
 
 			await newUser.save();
 
-			res.sendStatus(200);
+			res.redirect("/main");
 		}
 	});
 });

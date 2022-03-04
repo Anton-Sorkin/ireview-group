@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
 	username: { type: String, required: true },
 	hashedPassword: { type: String, required: true },
 	admin: { type: Boolean },
+	secret: String,
 });
 
 const UsersModel = mongoose.model("Users", userSchema);

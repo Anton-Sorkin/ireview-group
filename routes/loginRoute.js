@@ -15,14 +15,15 @@ router.post("/", async (req, res) => {
 	UsersModel.findOne({ username }, (err, user) => {
 		if (user && utils.comparePassword(password, user.hashedPassword)) {
 			const userData = { userId: user._id.toString(), username };
-			const accessToken = jwt.sign(userData, process.env.JWTSECRET);
+			const accessToken = jwt.sign(userData, process.env.JWT_SECRET);
 
 			res.cookie("token", accessToken);
-			res.redirect("/");
+			res.redirect("/main");
 		} else {
 			res.send("Login failed");
 		}
 	});
+	console.log(req.body);
 });
 
 module.exports = router;

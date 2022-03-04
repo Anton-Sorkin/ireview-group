@@ -1,10 +1,33 @@
-<form action="/register" method="post">
-	<input type="text" name="username" placeholder="Username" />
-	<input type="password" name="password" placeholder="Password" />
-	<input
-		type="password"
-		name="confirmPassword"
-		placeholder="Confirm Password"
-	/>
-	<input type="submit" value="Register" />
-</form>
+<div class="register-main-cnt">
+
+	<div class="register-box-cnt">
+
+		<div class="register-wrapper">
+			<span class="register-title">REGISTER</span>
+		</div>
+
+		<form action="/register" method="post" class="register-form">
+			<input
+				type="text"
+				name="username"
+				placeholder="Username"
+				class="username-input"
+			/>
+			<input
+				type="password"
+				name="password"
+				placeholder="Password"
+				class="password-input"
+			/>
+			<input
+				type="password"
+				name="confirmPassword"
+				placeholder="Confirm Password"
+				class="password-input"
+			/>
+			<input type="submit" value="Register" class="register-btn" />
+		</form>
+
+	</div>
+
+</div>

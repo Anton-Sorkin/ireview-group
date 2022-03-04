@@ -1,0 +1,36 @@
+.fof-main-cnt {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(#360f1f, #0b2530);
+}
+
+.fof-fof-cnt {
+	font-size: 3rem;
+	font-weight: 600;
+	margin: 1em;
+	border: none;
+	background: #da4981;
+	color: #e0e0e0;
+	padding: 0.2em 0.4em;
+	border-radius: 0.4em;
+}
+
+.fof-span-cnt {
+	width: 30em;
+
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: #e0e0e0;
+	border-radius: 0.7em;
+}
+
+.fof-title {
+	font-size: 4rem;
+	font-weight: 800;
+	color: #303030;
+}

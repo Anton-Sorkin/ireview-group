@@ -17,6 +17,7 @@ const errorRoute = require("./routes/errorRoute");
 const profilesRoute = require("./routes/profilesRoute");
 const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
+const mainRoute = require("./routes/mainRoute.js");
 
 // APP INIT
 const app = express();
@@ -31,15 +32,28 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cParser());
 app.use(express.static("public"));
 
+app.use((req, res, next) => {
+	const { token } = req.cookies;
+
+	if (token && jwt.verify(token, process.env.JWT_SECRET)) {
+		const tokenData = jwt.decode(token, process.env.JWT_SECRET);
+		res.locals.loginInfo = tokenData.username + " " + tokenData.id;
+	} else {
+		res.locals.loginInfo = "not logged in";
+	}
+	next();
+});
+
 app.get("/", (req, res) => {
 	res.render("home");
 });
 
 // ROUTES
 app.use("/admin", adminsRoute);
-app.use("/profiles", profilesRoute);
+app.use("/profile", profilesRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
+app.use("/main", mainRoute);
 
 // ERROR ROUTE
 app.use("*", errorRoute);
