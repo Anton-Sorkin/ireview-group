@@ -1,0 +1,51 @@
+
+.nav-li, .nav-a {
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding: 25px 10%;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #0088a9;
+}
+
+.nav-b {
+    display: flex;
+    background: none;
+    align-items: left;
+    padding: 9px 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: white;
+}
+
+.nav-b:hover {
+    background-color: purple;
+    border-radius: 0px 25px 25px 25px;
+    transition: all 0.3s ease 0s;
+}

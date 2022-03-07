@@ -18,6 +18,7 @@ const profilesRoute = require("./routes/profilesRoute");
 const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
 const mainRoute = require("./routes/mainRoute.js");
+const frontPageRoute = require("./routes/front-pageRoute");
 
 // APP INIT
 const app = express();
@@ -54,6 +55,7 @@ app.use("/profile", profilesRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/main", mainRoute);
+app.use("/front-page", frontPageRoute);
 
 // ERROR ROUTE
 app.use("*", errorRoute);
