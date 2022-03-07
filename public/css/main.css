@@ -499,3 +499,160 @@ body {
   border-radius: 0px 25px 25px 25px;
   transition: all 0.3s ease 0s;
 }
+
+.film-list-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#360f1f, #0b2530);
+}
+
+.film-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  height: 90vh;
+}
+
+.user-reviews-container {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.latest-container {
+  display: flex;
+  margin: 1.4em;
+}
+
+.latest-span {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.user-movies-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #e0e0e0;
+  border-radius: 0.8em;
+  width: 84vw;
+  height: 150vh;
+  padding: 2em;
+  gap: 2em;
+}
+
+.films-wrapper {
+  background-color: #CBC3E3;
+}
+
+.film-badge-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.8em;
+}
+
+.filmposter-container {
+  width: 80px;
+  margin: 0.3em;
+  padding: 1em;
+}
+
+.user-movies-container {
+  overflow: auto;
+}
+
+#film-list-scrollbar {
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.movieposter-film-list {
+  max-width: 100%;
+}
+
+.film-info-containerr {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  margin: 1.2em;
+  gap: 1.2em;
+}
+
+.review-by-container {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.link-to-profile {
+  color: #000000;
+  text-decoration: none;
+}
+
+.link-to-profile:hover {
+  opacity: 0.6;
+}
+
+.film-title-container {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.user-review-container {
+  font-size: 1.2rem;
+  max-height: 4.36rem;
+  overflow: hidden;
+}
+
+.user-review-span {
+  font-size: 1.2rem;
+}
+
+.user-star-rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0.3em;
+  gap: 2em;
+}
+
+.film-list-user-rating {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.user-star-rating-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-stars {
+  font-size: 1.2rem;
+  color: orange;
+}
+
+@media (min-width: 768px) {
+  .film-list-wrapper {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .film-list-container {
+    height: 60vh;
+  }
+
+  .user-movies-container {
+    width: 30vw;
+    height: 80vh;
+  }
+
+  .filmposter-container {
+    width: 100px;
+  }
+}
