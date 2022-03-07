@@ -1,33 +1,36 @@
 <div class="register-main-cnt">
 
-	<div class="register-box-cnt">
+  <div class="register-box-cnt">
 
-		<div class="register-wrapper">
-			<span class="register-title">REGISTER</span>
-		</div>
+    <div class="register-wrapper">
+      <span class="register-title">REGISTER</span>
+    </div>
 
-		<form action="/register" method="post" class="register-form">
-			<input
-				type="text"
-				name="username"
-				placeholder="Username"
-				class="username-input"
-			/>
-			<input
-				type="password"
-				name="password"
-				placeholder="Password"
-				class="password-input"
-			/>
-			<input
-				type="password"
-				name="confirmPassword"
-				placeholder="Confirm Password"
-				class="password-input"
-			/>
-			<input type="submit" value="Register" class="register-btn" />
-		</form>
+    <form action="/register" method="post" class="register-form">
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        class="username-input"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        class="password-input"
+      />
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        class="password-input"
+      />
 
-	</div>
+      <input type="text" name="ROLE" value="USER" hidden />
+
+      <input type="submit" value="Register" class="register-btn" />
+    </form>
+
+  </div>
 
 </div>

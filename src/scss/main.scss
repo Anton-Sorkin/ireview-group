@@ -2,25 +2,22 @@
 
 html,
 body {
-	margin: 0 auto;
-	padding: 0;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	scroll-behavior: smooth;
-	font-family: "Roboto", sans-serif;
-	font-size: 62.5%;
-	display: flex;
-	flex-direction: column;
-	color: #303030;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+  display: flex;
+  flex-direction: column;
+  color: #303030;
 }
 
 @import "./profiles.scss";
-@import "./nav.scss";
+// @import "./nav.scss";
 @import "./login-register.scss";
 @import "./movies-main.scss";
 @import "./fourofour.scss";
 @import "./nav-bar.scss";
-
-
-
