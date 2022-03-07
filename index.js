@@ -24,7 +24,7 @@ const frontPageRoute = require("./routes/front-pageRoute");
 const app = express();
 
 // VIEW ENGINE
-app.engine("hbs", hbars.engine({ extname: "hbs", defaultLayout: "main" }));
+app.engine("hbs", hbars.engine({ extname: "hbs", defaultLayout: "film-page" }));
 
 app.set("view engine", "hbs");
 
