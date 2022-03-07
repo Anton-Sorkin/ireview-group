@@ -1,15 +1,24 @@
 
 .nav-li, .nav-a {
-    font-weight: 500;
-    color: black;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#iReview {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: purple;
+
 }
 
 .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: left;
-    padding: 25px 10%;
+    padding: 0.01rem 4%;
+    font-size: 1.9rem;
 }
 
 .logo {
@@ -22,15 +31,11 @@
 
 .nav__links li {
     display: inline-block;
-    padding: 0px 20px;
+    padding: 0px 36px;
 }
 
 .nav__links li a {
     transition: all 0.3s ease 0s;
-}
-
-.nav__links li a:hover {
-    color: #0088a9;
 }
 
 .nav-b {
@@ -41,11 +46,14 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    color: white;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: purple;
+
 }
 
 .nav-b:hover {
-    background-color: purple;
+    background-color: black;
     border-radius: 0px 25px 25px 25px;
     transition: all 0.3s ease 0s;
 }
