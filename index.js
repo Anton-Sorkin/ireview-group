@@ -19,12 +19,13 @@ const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
 const mainRoute = require("./routes/mainRoute.js");
 const frontPageRoute = require("./routes/front-pageRoute");
+const filmListRoute = require("./routes/film-listRoute")
 
 // APP INIT
 const app = express();
 
 // VIEW ENGINE
-app.engine("hbs", hbars.engine({ extname: "hbs", defaultLayout: "film-page" }));
+app.engine("hbs", hbars.engine({ extname: "hbs", defaultLayout: "main" }));
 
 app.set("view engine", "hbs");
 
@@ -56,6 +57,7 @@ app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/main", mainRoute);
 app.use("/front-page", frontPageRoute);
+app.use("/film-list", filmListRoute);
 
 // ERROR ROUTE
 app.use("*", errorRoute);
