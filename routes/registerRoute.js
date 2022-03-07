@@ -5,29 +5,30 @@ const UsersModel = require("../models/UsersModels.js");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-	res.render("register/register-user");
+  res.render("register/register-user");
 });
 
 router.post("/", async (req, res) => {
-	const { username, password, confirmPassword, secret } = req.body;
+  const { username, password, confirmPassword, ROLE, secret } = req.body;
 
-	UsersModel.findOne({ username }, async (err, user) => {
-		if (user) {
-			res.send("Username already exist!");
-		} else if (password !== confirmPassword) {
-			res.send("Passwords don't match!");
-		} else {
-			const newUser = new UsersModel({
-				username,
-				hashedPassword: utils.hashPassword(password),
-				secret,
-			});
+  UsersModel.findOne({ username }, async (err, user) => {
+    if (user) {
+      res.send("Username already exist!");
+    } else if (password !== confirmPassword) {
+      res.send("Passwords don't match!");
+    } else {
+      const newUser = new UsersModel({
+        username,
+        hashedPassword: utils.hashPassword(password),
+        ROLE,
+        secret,
+      });
 
-			await newUser.save();
+      await newUser.save();
 
-			res.redirect("/main");
-		}
-	});
+      res.redirect("/main");
+    }
+  });
 });
 
 module.exports = router;

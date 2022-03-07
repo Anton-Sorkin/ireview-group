@@ -22,11 +22,11 @@
 }
 
 .logo {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .nav__links {
-    list-style: none;
+	list-style: none;
 }
 
 .nav__links li {
@@ -35,7 +35,7 @@
 }
 
 .nav__links li a {
-    transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
 }
 
 .nav-b {
@@ -47,7 +47,7 @@
     cursor: pointer;
     transition: all 0.3s ease 0s;
     font-size: 1.9rem;
-    font-weight: 700;
+    font-weight: 500;
     color: purple;
 
 }
@@ -56,4 +56,5 @@
     background-color: black;
     border-radius: 0px 25px 25px 25px;
     transition: all 0.3s ease 0s;
+    color:white;
 }
