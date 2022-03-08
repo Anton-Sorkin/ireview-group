@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const editSchema = new mongoose.Schema({
 	favmovie: { type: String, required },
@@ -6,6 +6,6 @@ const editSchema = new mongoose.Schema({
 	quoteby: { type: String, required },
 });
 
-const EditsModel = mongoose.model("Edits", editSchema);
+const EditsModel = model("Edits", editSchema);
 
 module.exports = EditsModel;

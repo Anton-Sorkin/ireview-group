@@ -1,0 +1,17 @@
+<div class="review-main-cnt">
+	<div class="review-frame">
+		<form action="/write-review" method="post" class="review-form">
+			<select name="{{movies}}" class="select-movie-box">
+				{{#each movies}}
+					<option value="{{title}}">{{title}}</option>
+				{{/each}}
+			</select>
+			<span class="rating-to-ten">Choose a Rating 1-10</span>
+			<input type="number" name="rating" min="1" max="10" class="rating-box" />
+			<textarea name="review" cols="30" rows="10" class="review-box"></textarea>
+			<input type="submit" value="Post" />
+		</form>
+
+		<span></span>
+	</div>
+</div>
