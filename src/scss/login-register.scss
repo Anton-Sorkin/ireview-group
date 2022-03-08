@@ -86,7 +86,7 @@
 	font-weight: 600;
 	border: none;
 	background: #da4981;
-	color: #e0e0e0;
+	color: #ffffff;
 	padding: 0.4em 0.6em;
 	border-radius: 0.4em;
 	cursor: pointer;
@@ -97,13 +97,17 @@
 	font-weight: 600;
 	border: none;
 	background: #da4981;
-	color: #e0e0e0;
+	color: #ffffff;
 	padding: 0.4em 0.6em;
 	border-radius: 0.4em;
 	cursor: pointer;
 }
 
 .login-btn:hover {
+	opacity: 0.7;
+}
+
+.register-btn:hover {
 	opacity: 0.7;
 }
 
