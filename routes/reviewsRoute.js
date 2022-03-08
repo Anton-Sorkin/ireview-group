@@ -8,30 +8,26 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
 	const movies = await MovieModel.find().lean();
-	res.render("reviews/write-review", { movies });
+	const users = await UsersModel.find().lean();
+	res.render("reviews/write-review", { movies, users });
 });
 
-// router.post("/", async (req, res) => {
-// 	const { username, password, confirmPassword, role, secret } = req.body;
+router.get("/list", async (req, res) => {
+	const reviews = await ReviewsModel.find().lean();
+	const users = await UsersModel.find().populate("reviews").lean();
+	res.render("reviews/reviews-list", { reviews, users });
+});
 
-// 	UsersModel.findOne({ username }, async (err, user) => {
-// 		if (user) {
-// 			res.send("Username already exist!");
-// 		} else if (password !== confirmPassword) {
-// 			res.send("Passwords don't match!");
-// 		} else {
-// 			const newUser = new UsersModel({
-// 				username,
-// 				hashedPassword: utils.hashPassword(password),
-// 				role,
-// 				secret,
-// 			});
+router.post("/write-review", async (req, res) => {
+	// const user = await UsersModel.findById();
+	const newReview = new ReviewsModel({
+		review: req.body.review,
+		rating: req.body.rating,
+		reviewedBy: req.body.reviewedBy,
+	});
 
-// 			await newUser.save();
-
-// 			res.redirect("/main");
-// 		}
-// 	});
-// });
+	await newReview.save();
+	res.redirect("/reviews/list");
+});
 
 module.exports = router;

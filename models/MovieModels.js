@@ -5,7 +5,11 @@ const movieSchema = new Schema({
 	description: { type: String, required: true },
 	genre: { type: String, required: true },
 	img: { type: String, required: true },
-	reviewedByUser: { type: Schema.Types.ObjectId, ref: "Users", required: true },
+	reviewedByUser: {
+		type: Schema.Types.ObjectId,
+		ref: "Users",
+		required: false,
+	},
 });
 
 const MovieModel = model("Movies", movieSchema);
