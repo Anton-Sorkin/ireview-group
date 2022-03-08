@@ -1,0 +1,48 @@
+<div class="film-list-wrapper">
+	<div class="film-list-container">
+		<div class="user-reviews-container">
+			<div class="user-movies-container" id="film-list-scrobar">
+				<div class="latest-container">
+					<span class="latest-span">Latest User Reviews</span>
+				</div>
+				{{!-- MOVIE 1 --}}
+				<div class="films-wrapper">
+					<div class="film-badge-container">
+					<div class="filmposter-container">
+						<img
+							src="/img/diehard-mock.jpeg"
+							alt="Die Hard - 1988"
+							class="movieposter"
+						/>
+					</div>
+					<div class="film-info-containerr">
+						<div class="film-title-container">
+							<span class="movie-title">DIE HARD</span>
+						</div>
+						<div class="review-by-container">
+							<span class="review-by-span">Review By:</span><a href="#" class="link-to-profile"> iMovieBuff</a>
+						</div>
+						<div class="user-review-container">
+							<span class="user-review-span">I thought this movie was freakin' sweet. Bruce Willis balding head creates tingles around my prostate area ;)) Did you know? Die Hard is actually a documentary, depicting an actual terrorist attack conducted by germans.
+							</span>
+						</div>
+						<div class="user-star-rating">
+							<div class="user-star-rating-container">
+								<span class="film-list-user-rating">Rating:</span>
+								<span class="user-stars">★★★★★</span>
+							</div>
+							<div class="read-review-cnt">
+								<a href="/linktoidreview" class="read-review">Read Full Review</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				{{!-- MOVIE 2 --}}
+				{{> user-review }}
+				{{> user-review }}
+				{{> user-review }}
+			</div>
+		</div>
+	</div>
+</div>

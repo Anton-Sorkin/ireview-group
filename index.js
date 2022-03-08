@@ -7,6 +7,7 @@ const express = require("express");
 const hbars = require("express-handlebars");
 const jwt = require("jsonwebtoken");
 const cParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
 
 // UTILS
 const utils = require("./utils/utils.js");
@@ -19,6 +20,7 @@ const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
 const mainRoute = require("./routes/mainRoute.js");
 const frontPageRoute = require("./routes/front-pageRoute");
+const filmListRoute = require("./routes/film-listRoute")
 
 // APP INIT
 const app = express();
@@ -32,6 +34,7 @@ app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: true }));
 app.use(cParser());
 app.use(express.static("public"));
+app.use(fileUpload());
 
 app.use((req, res, next) => {
   const { token } = req.cookies;
@@ -54,11 +57,12 @@ app.get("/", (req, res) => {
 
 // ROUTES
 app.use("/admin", adminsRoute);
-app.use("/profile", profilesRoute);
+app.use("/profiles", profilesRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/main", mainRoute);
 app.use("/front-page", frontPageRoute);
+app.use("/film-list", filmListRoute);
 
 // ERROR ROUTE
 app.use("*", errorRoute);
