@@ -7,6 +7,7 @@ const express = require("express");
 const hbars = require("express-handlebars");
 const jwt = require("jsonwebtoken");
 const cParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
 
 // UTILS
 const utils = require("./utils/utils.js");
@@ -31,6 +32,7 @@ app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: true }));
 app.use(cParser());
 app.use(express.static("public"));
+app.use(fileUpload());
 
 app.use((req, res, next) => {
 	const { token } = req.cookies;
@@ -50,7 +52,7 @@ app.get("/", (req, res) => {
 
 // ROUTES
 app.use("/admin", adminsRoute);
-app.use("/profile", profilesRoute);
+app.use("/profiles", profilesRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/main", mainRoute);

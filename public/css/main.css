@@ -337,7 +337,7 @@ body {
   font-weight: 600;
   border: none;
   background: #da4981;
-  color: #e0e0e0;
+  color: #ffffff;
   padding: 0.4em 0.6em;
   border-radius: 0.4em;
   cursor: pointer;
@@ -348,13 +348,17 @@ body {
   font-weight: 600;
   border: none;
   background: #da4981;
-  color: #e0e0e0;
+  color: #ffffff;
   padding: 0.4em 0.6em;
   border-radius: 0.4em;
   cursor: pointer;
 }
 
 .login-btn:hover {
+  opacity: 0.7;
+}
+
+.register-btn:hover {
   opacity: 0.7;
 }
 
@@ -398,7 +402,7 @@ body {
   font-weight: 600;
   border: none;
   background: #da4981;
-  color: #e0e0e0;
+  color: #ffffff;
   padding: 0.4em 0.6em;
   border-radius: 0.4em;
 }
@@ -445,4 +449,197 @@ body {
   font-size: 4rem;
   font-weight: 800;
   color: #303030;
+}
+
+.edit-main-cnt {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
+}
+
+.edit-card-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 3.5em;
+}
+
+.pic-form-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  gap: 0.2em;
+}
+
+.choose-btn::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.choose-btn::before {
+  content: "Choose a Pic";
+  display: inline-block;
+  background: #da4981;
+  border-radius: 0.4em;
+  padding: 0.4em;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.choose-btn {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  color: #ffffff;
+  padding: 0.4em 0.6em;
+  border-radius: 0.4em;
+  margin: 0.8em;
+  cursor: pointer;
+}
+
+.field-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.upload-pic-btn {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  background: #da4981;
+  color: #ffffff;
+  padding: 0.4em 0.6em;
+  border-radius: 0.4em;
+  margin: 0.8em;
+  cursor: pointer;
+}
+
+.upload-pic-btn:hover {
+  opacity: 0.7;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 88vw;
+}
+
+.edit-form-input {
+  text-align: center;
+  margin: 1em;
+  border: none;
+  border-radius: 0.4em;
+  font-size: 1.4rem;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.edit-form-input:focus {
+  outline-style: none;
+}
+
+.edit-spans {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.save-changes-btn {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  background: #da4981;
+  color: #ffffff;
+  padding: 0.4em 0.6em;
+  border-radius: 0.4em;
+  margin: 0.8em;
+  cursor: pointer;
+}
+
+.save-changes-btn:hover {
+  opacity: 0.7;
+}
+
+@media (min-width: 600px) {
+  .edit-form {
+    width: 30vw;
+  }
+}
+.profiles-list-cnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#360f1f, #0b2530);
+}
+
+.members-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #da4981;
+  margin: 8rem;
+}
+
+.users-list-s-link {
+  text-decoration: none;
+  color: #e0e0e0;
+}
+
+.users-list-s-link:hover {
+  opacity: 0.7;
+  transition: 200ms;
+}
+
+.members-main-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.members-s-cnt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-pic-s-cnt {
+  width: 45px;
+}
+
+.p-pic-s {
+  width: 100%;
+  border-radius: 0% 50% 50% 50%;
+  border: 3px solid #e0e0e0;
+}
+
+.username-s-cnt {
+  display: flex;
+  height: 8vh;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
+
+.username-s-span {
+  font-size: 3rem;
+  color: #e0e0e0;
+  margin: 0.3em;
 }
