@@ -1,0 +1,56 @@
+.admin-page-container {
+  width: 100vw;
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .admin-page-nav {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+  }
+  .admin-page-content {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.admin-reviews-container {
+  width: 100vw;
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  button {
+    border: none;
+    color: red;
+    background-color: white;
+  }
+}
+.admin-users-container {
+  width: 100vw;
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  button {
+    border: none;
+    color: red;
+    background-color: white;
+  }
+}

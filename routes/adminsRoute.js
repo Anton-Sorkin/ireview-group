@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   if (token && jwt.verify(token, process.env.JWT_SECRET)) {
     res.render("admins/admin", { user });
   } else {
-    res.render("notFound.hbs");
+    res.send("not good");
   }
 });
 
@@ -64,6 +64,12 @@ router.post("/users/:id", async (req, res) => {
   await UsersModel.findByIdAndDelete(req.params.id);
 
   res.redirect("/admin/users");
+});
+
+router.post("/reviews/:id", async (req, res) => {
+  await UsersModel.findByIdAndDelete(req.params.id);
+
+  res.redirect("/admin/reviews");
 });
 
 // LOG OUT
