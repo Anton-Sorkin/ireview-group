@@ -10,8 +10,8 @@ body {
 	scroll-behavior: smooth;
 	font-family: "Roboto", sans-serif;
 	font-size: 62.5%;
-	display: flex;
-	flex-direction: column;
+	// display: flex;
+	// flex-direction: column;
 	color: #303030;
 }
 
@@ -23,4 +23,4 @@ body {
 @import "./film-list.scss";
 @import "./edit-profile.scss";
 @import "./profiles-list.scss";
-@import "./nav.scss";
+@import "./navigation.scss";
