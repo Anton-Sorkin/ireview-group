@@ -34,19 +34,22 @@ app.use(cParser());
 app.use(express.static("public"));
 
 app.use((req, res, next) => {
-	const { token } = req.cookies;
+  const { token } = req.cookies;
 
-	if (token && jwt.verify(token, process.env.JWT_SECRET)) {
-		const tokenData = jwt.decode(token, process.env.JWT_SECRET);
-		res.locals.loginInfo = tokenData.username + " " + tokenData.id;
-	} else {
-		res.locals.loginInfo = "not logged in";
-	}
-	next();
+  if (token && jwt.verify(token, process.env.JWT_SECRET)) {
+    const tokenData = jwt.decode(token, process.env.JWT_SECRET);
+    res.locals.loginInfo =
+      tokenData.username + " " + tokenData.userId + " " + tokenData.role;
+
+    console.log(tokenData);
+  } else {
+    res.locals.loginInfo = "not logged in";
+  }
+  next();
 });
 
 app.get("/", (req, res) => {
-	res.render("home");
+  res.render("home");
 });
 
 // ROUTES
@@ -62,5 +65,5 @@ app.use("*", errorRoute);
 
 // LISTENING PORT
 app.listen(8000, () => {
-	console.log("http://localhost:8000/");
+  console.log("http://localhost:8000/");
 });

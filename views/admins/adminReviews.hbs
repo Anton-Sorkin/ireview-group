@@ -1,0 +1,11 @@
+<a href="/admin">Back to main page</a>
+
+//replace with review model when avalible
+<ul>
+  {{#each users}}
+    <li>{{username}}</li><form
+      action="/admin/reviews/{{_id}}"
+      method="post"
+    ><button type="submit">Delete</button></form>
+  {{/each}}
+</ul>
