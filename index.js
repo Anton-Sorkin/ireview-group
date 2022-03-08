@@ -20,7 +20,7 @@ const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
 const mainRoute = require("./routes/mainRoute.js");
 const frontPageRoute = require("./routes/front-pageRoute");
-const filmListRoute = require("./routes/film-listRoute")
+const filmListRoute = require("./routes/film-listRoute");
 
 // APP INIT
 const app = express();
