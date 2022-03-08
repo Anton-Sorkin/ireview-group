@@ -13,8 +13,9 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/list", async (req, res) => {
-	const reviews = await ReviewsModel.find().lean();
-	const users = await UsersModel.find().populate("reviews").lean();
+	const reviews = await ReviewsModel.find().populate("reviewedBy").lean();
+	const users = await UsersModel.find().lean();
+
 	res.render("reviews/reviews-list", { reviews, users });
 });
 

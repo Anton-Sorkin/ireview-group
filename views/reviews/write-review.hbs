@@ -2,12 +2,12 @@
 	<div class="review-frame">
 		<form action="/reviews/write-review" method="post" class="review-form">
 			<select name="reviewedBy">
-				<option disabled selected>Select Seller</option>
+				<option disabled selected>Reviewed By</option>
 				{{#each users}}
 					<option value="{{_id}}">{{username}}</option>
 				{{/each}}
 			</select>
-			<select name="{{movies}}" class="select-movie-box">
+			<select name="reviews" class="select-movie-box">
 				{{#each movies}}
 					<option value="{{title}}">{{title}}</option>
 				{{/each}}
