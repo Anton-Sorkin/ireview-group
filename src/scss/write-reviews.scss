@@ -1,0 +1,42 @@
+.review-main-cnt {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: linear-gradient(#631d3a, #1a5872);
+	width: 100vw;
+	height: 100vh;
+}
+
+.review-frame {
+	display: flex;
+	flex-direction: column;
+	width: 30vw;
+	border: 1px solid red;
+}
+
+.review-form {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+.rating-to-ten {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+.movie-title-review {
+	font-size: 2rem;
+	color: #ffffff;
+}
+
+.rating-box {
+	border: none;
+}
+
+.rating-box:focus {
+	outline: none;
+}
