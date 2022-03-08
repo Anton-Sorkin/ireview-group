@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { username, password, confirmPassword, ROLE, secret } = req.body;
+  const { username, password, confirmPassword, role, secret } = req.body;
 
   UsersModel.findOne({ username }, async (err, user) => {
     if (user) {
@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
       const newUser = new UsersModel({
         username,
         hashedPassword: utils.hashPassword(password),
-        ROLE,
+        role,
         secret,
       });
 

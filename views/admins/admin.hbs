@@ -1,1 +1,21 @@
-title, year, genre, länk till bild, deskription,
+<a href="/admin/users">See userbase</a>
+<a href="/admin/reviews">See reviews</a>
+
+{{loginInfo}}
+
+{{#if loginInfo}}
+  <p>logged in as: {{users}}</p>
+  <form action="admin/log-out" method="post">
+    <button type="submit">log out</button>
+  </form>
+{{else}}
+  <p>please log in</p>
+{{/if}}
+
+<form action="/admin" method="post">
+  <input type="text" name="title" required placeholder="title" />
+  <input type="text" name="description" required placeholder="description" />
+  <input type="text" name="genre" required placeholder="genre" />
+  <input type="text" name="img" required placeholder="img" />
+  <button type="submit">Create movie</button>
+</form>

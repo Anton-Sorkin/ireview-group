@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const { required } = require("nodemon/lib/config");
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   hashedPassword: { type: String, required: true },
-  ROLE: { type: String },
+  role: { type: String, required: true },
   secret: String,
 });
 
