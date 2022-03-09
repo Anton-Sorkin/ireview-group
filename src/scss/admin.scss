@@ -1,7 +1,7 @@
 .admin-page-container {
   width: 100vw;
-  height: 90vh;
-
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    font-size: 3rem;
+    color: white;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
   .admin-page-content {
     width: 100%;
@@ -28,29 +33,41 @@
 }
 .admin-reviews-container {
   width: 100vw;
-  height: 90vh;
-
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  font-size: 2rem;
+  color: white;
+  a {
+    color: white;
+  }
   button {
     border: none;
     color: red;
     background-color: white;
+    border-radius: 15px;
   }
 }
 .admin-users-container {
   width: 100vw;
-  height: 90vh;
-
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  font-size: 2rem;
+  color: white;
+  a {
+    color: white;
+  }
   button {
     border: none;
     color: red;
     background-color: white;
+    border-radius: 15px;
   }
 }

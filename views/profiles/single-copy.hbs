@@ -16,11 +16,16 @@
           <span class="span-user-name">{{user.username}}</span>
           <div class="quote-box-cnt">
             <span class="span-quote">favorite quote:{{#each settings}}
-                {{favmovie}}
+                {{quote}}
+              {{/each}}
+            </span>
+            <span class="quote-by">-Who Said'it:{{#each settings}}
+                {{quoteby}}
               {{/each}}</span>
-            <span class="quote-by">-Who Said'it:</span>
           </div>
-          <span class="total-reviews">Total Reviews: 2</span>
+          <span class="total-reviews">Name of movie:{{#each settings}}
+              {{favmovie}}
+            {{/each}}</span>
 
           <div class="timestamp-cnt">
             <span class="timestamp-span">Member Since: 2022</span>

@@ -20,7 +20,9 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const user = await UsersModel.findById(req.params.id).lean();
-  const settings = await EditsModel.find().lean();
+  const settings = await EditsModel.find({ settingsBy: req.params.id }).lean();
+
+  console.log(settings);
   res.render("profiles/single-copy", { user, settings });
 });
 
@@ -29,7 +31,6 @@ router.get("/edit-profile/:id", async (req, res) => {
 
   const user = await UsersModel.findById(req.params.id).lean();
   res.render("profiles/edit-profiles", { user, settings });
-  console.log(settings);
 });
 
 router.post("/edit-profile/:id", async (req, res) => {
@@ -45,7 +46,7 @@ router.post("/edit-profile/:id", async (req, res) => {
 
     await newEdit.save();
 
-    res.redirect("/");
+    res.redirect("/main");
   });
 });
 

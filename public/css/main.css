@@ -819,7 +819,8 @@ body {
 
 .admin-page-container {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -830,7 +831,12 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  font-size: 3rem;
+  color: white;
+}
+.admin-page-container .admin-page-nav a {
+  color: white;
+  text-decoration: none;
 }
 .admin-page-container .admin-page-content {
   width: 100%;
@@ -846,30 +852,44 @@ body {
 
 .admin-reviews-container {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  font-size: 2rem;
+  color: white;
+}
+.admin-reviews-container a {
+  color: white;
 }
 .admin-reviews-container button {
   border: none;
   color: red;
   background-color: white;
+  border-radius: 15px;
 }
 
 .admin-users-container {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  font-size: 2rem;
+  color: white;
+}
+.admin-users-container a {
+  color: white;
 }
 .admin-users-container button {
   border: none;
   color: red;
   background-color: white;
+  border-radius: 15px;
 }
 
 .wrapper {

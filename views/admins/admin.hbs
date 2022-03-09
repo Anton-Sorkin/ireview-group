@@ -4,9 +4,6 @@
     <a href="/admin/reviews">See reviews</a>
     {{#if loginUser}}
       <p>logged in as: {{loginUser}}</p>
-      <form action="admin/log-out" method="post">
-        <button type="submit">log out</button>
-      </form>
     {{else}}
       <p><a href="/">please log in </a></p>
     {{/if}}
