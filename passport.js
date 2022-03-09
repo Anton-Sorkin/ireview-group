@@ -1,11 +1,13 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 
+//logga in
 passport.serializeUser(function (user, done) {
     // Optionally add extra code for verifying user or adding extra attributes
     done(null, user);
 });
 
+//logga ut
 passport.deserializeUser(function (user, done) {
     done(null, user);
 });
@@ -15,7 +17,7 @@ passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     // the url google will send the user to when authorized
-    //wed 1007 5:20, create new env?
+    // create new env? istället för att skriva localhost, skapa en ny env...
     callbackURL: "http://localhost:8000/google/callback",
     passReqToCallback: true
 },

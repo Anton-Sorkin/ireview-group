@@ -10,8 +10,8 @@ body {
   scroll-behavior: smooth;
   font-family: "Roboto", sans-serif;
   font-size: 62.5%;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   color: #303030;
 }
 
@@ -19,8 +19,10 @@ body {
 @import "./login-register.scss";
 @import "./movies-main.scss";
 @import "./fourofour.scss";
-@import "./nav-bar.scss";
+// @import "./nav-bar.scss";
 @import "./film-list.scss";
 @import "./edit-profile.scss";
 @import "./profiles-list.scss";
 @import "./admin.scss";
+@import "./navigation.scss";
+@import "./write-reviews.scss";

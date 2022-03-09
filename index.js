@@ -24,8 +24,7 @@ const mainRoute = require("./routes/mainRoute.js");
 const frontPageRoute = require("./routes/front-pageRoute");
 const filmListRoute = require("./routes/film-listRoute");
 const UsersModel = require("./models/UsersModels.js");
-
-const authRoute = require("./routes/authRoute.js");
+const reviewsRoute = require("./routes/reviewsRoute");
 
 // APP INIT
 const app = express();
@@ -49,14 +48,15 @@ app.use((req, res, next) => {
     const tokenData = jwt.decode(token, process.env.JWT_SECRET);
     res.locals.loginInfo =
       tokenData.username + " " + tokenData.userId + " " + tokenData.role;
-    res.locals.loginUser = tokenData.username;
+
+    console.log(tokenData);
   } else {
     res.locals.loginInfo = "not logged in";
   }
   next();
 });
 
-// google auth
+// google auth - middleware for checking cookie token
 app.use((req, res, next) => {
   const{ token } = req.cookies
 
@@ -82,33 +82,55 @@ app.get('/failed', (req, res) => {
 
 app.get('/google', passport.authenticate('google', { scope: ['email', 'profile'] }))
 
-app.get('/google/callback', 
-  passport.authenticate('google', {
-    failureRedirect: '/failed',
-  }),
-  async (req, res) => {
-    //login to google succesful
-    UsersModel.findOne({ googleId: req.user.id }, async (err, user) => {
-      const userData = { username: req.user.username }
+//skickar tillbaka nyckel - hemlig engångskod - till användaren 
+//Verifierar med google, hemliga nycken, klient id, hemliga nyckeln från klienten
 
-      if (user) {
+app.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: "/failure" }),
+  async (req, res) => {
+    //Login with google successful
+    console.log(req.user)
+
+    const googleId = req.user.id
+
+    UsersModel.findOne({ googleId }, async (err, user) => {
+      const userData = {username: req.user.username}
+
+      if(user) {
         userData.id = user._id
       }
-      else {
-        const newUser = new UsersModel({ googleId: req.user.id, username: req.user.username })
+      else{
+        const newUser = new UsersModel({
+          googleId,
+          username: req.user.username
+        })
         const result = await newUser.save()
+
         userData.id = result._id
       }
 
-      const accessToken = jwt.sign(userData, process.env.JWT_SECRET)
+      //userdata : (googleId, Id)
+      // första parametern är datan vi vill signera, andra parametern är vår hemligthet, 
 
-      res.cookie("token", accessToken)
-      res.redirect('/')
+      const token = jwt.sign(userData, process.env.JWT_SECRET)
+
+      // ta token och spara i vår token-cookie
+      res.cookie("token", token)
+
+      res.redirect("/")
     })
-  }  
+  }
 )
 
+// logout
 
+app.get('/logout', (req, res) => {
+  res.cookie("token", "", { maxAge: 0 })
+  res.redirect('/')
+})
+
+// /THIRD-PARTY LOGIN
+// Oavsett om det finns i vår databas eller ej så ska vi ha displayName, det hämtas från Google
 
 
 // ROUTES
@@ -119,8 +141,7 @@ app.use("/login", loginRoute);
 app.use("/main", mainRoute);
 app.use("/front-page", frontPageRoute);
 app.use("/film-list", filmListRoute);
-
-app.use("/google-auth", authRoute);
+app.use("/reviews", reviewsRoute);
 
 // ERROR ROUTE
 app.use("*", errorRoute);
