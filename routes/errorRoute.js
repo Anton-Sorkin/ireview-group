@@ -4,10 +4,7 @@ const router = express.Router();
 
 //GETS
 router.get("*", (req, res) => {
-  res.render("notFound", {
-    title: "404",
-    errorMessage: "Page not found.",
-  });
+  res.redirect("/");
 });
 
 //EXPORTS
