@@ -25,6 +25,9 @@ const frontPageRoute = require("./routes/front-pageRoute");
 const filmListRoute = require("./routes/film-listRoute");
 const reviewsRoute = require("./routes/reviewsRoute");
 
+// UsersModel
+
+const UsersModel = require('./models/UsersModels')
 // APP INIT
 const app = express();
 
@@ -92,7 +95,8 @@ app.get('/google/callback',
     const googleId = req.user.id
 
     UsersModel.findOne({ googleId }, async (err, user) => {
-      const userData = {username: req.user.username}
+      const userData = {username: req.user.displayName}
+      console.log(user)
 
       if(user) {
         userData.id = user._id
@@ -100,7 +104,8 @@ app.get('/google/callback',
       else{
         const newUser = new UsersModel({
           googleId,
-          username: req.user.username
+          username: req.user.displayName,
+          
         })
         const result = await newUser.save()
 
@@ -110,12 +115,12 @@ app.get('/google/callback',
       //userdata : (googleId, Id)
       // första parametern är datan vi vill signera, andra parametern är vår hemligthet, 
 
-      const token = jwt.sign(userData, process.env.JWT_SECRET)
+      const accessToken = jwt.sign(userData, process.env.JWT_SECRET)
 
       // ta token och spara i vår token-cookie
-      res.cookie("token", token)
+      res.cookie("token", accessToken)
 
-      res.redirect("/")
+      res.redirect("/home")
     })
   }
 )
