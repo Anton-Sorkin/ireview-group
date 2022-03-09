@@ -3,10 +3,12 @@ const express = require("express");
 const UsersModel = require("../models/UsersModels.js");
 const MovieModel = require("../models/MovieModels");
 const jwt = require("jsonwebtoken");
+const ReviewsModel = require("../models/ReviewsModels.js");
+const { adminAuth } = require("../utils/utils.js");
 const router = express.Router();
 
 //GETS
-router.get("/", async (req, res) => {
+router.get("/", adminAuth, async (req, res) => {
   const user = await UsersModel.findById();
 
   const { token } = req.cookies;
@@ -18,7 +20,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/users", async (req, res) => {
+router.get("/users", adminAuth, async (req, res) => {
   const users = await UsersModel.find().lean();
 
   const { token } = req.cookies;
@@ -30,13 +32,13 @@ router.get("/users", async (req, res) => {
   }
 });
 
-router.get("/reviews", async (req, res) => {
-  const users = await UsersModel.find().lean();
+router.get("/reviews", adminAuth, async (req, res) => {
+  const reviews = await ReviewsModel.find().lean();
 
   const { token } = req.cookies;
 
   if (token && jwt.verify(token, process.env.JWT_SECRET)) {
-    res.render("admins/adminReviews", { users });
+    res.render("admins/adminReviews", { reviews });
   } else {
     res.render("notFound.hbs");
   }
@@ -67,7 +69,7 @@ router.post("/users/:id", async (req, res) => {
 });
 
 router.post("/reviews/:id", async (req, res) => {
-  await UsersModel.findByIdAndDelete(req.params.id);
+  await ReviewsModel.findByIdAndDelete(req.params.id);
 
   res.redirect("/admin/reviews");
 });

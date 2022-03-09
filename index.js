@@ -23,7 +23,6 @@ const loginRoute = require("./routes/loginRoute");
 const mainRoute = require("./routes/mainRoute.js");
 const frontPageRoute = require("./routes/front-pageRoute");
 const filmListRoute = require("./routes/film-listRoute");
-const UsersModel = require("./models/UsersModels.js");
 const reviewsRoute = require("./routes/reviewsRoute");
 
 // APP INIT
@@ -48,8 +47,7 @@ app.use((req, res, next) => {
     const tokenData = jwt.decode(token, process.env.JWT_SECRET);
     res.locals.loginInfo =
       tokenData.username + " " + tokenData.userId + " " + tokenData.role;
-
-    console.log(tokenData);
+    res.locals.loginUser = tokenData.username;
   } else {
     res.locals.loginInfo = "not logged in";
   }
