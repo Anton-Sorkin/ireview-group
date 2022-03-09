@@ -15,6 +15,7 @@ router.get("/", async (req, res) => {
 router.get("/write-review", async (req, res) => {
 	const movies = await MovieModel.find().lean();
 	const users = await UsersModel.find().lean();
+	// const reviews = await ReviewsModel.find().lean();
 	res.render("reviews/write-review", { movies, users });
 });
 
@@ -27,21 +28,21 @@ router.post("/write-review", async (req, res) => {
 	});
 
 	await newReview.save();
-	res.redirect("/reviews/list");
+	res.redirect("/reviews");
 });
 
 router.get("/:id", async (req, res) => {
-	const reviews = await ReviewsModel.find()
-		.populate("reviewedBy", "reviewedTitle")
+	const reviews = await ReviewsModel.find({ reviewedTitle: req.params.id })
+		.populate("reviewedTitle")
+		.populate("reviewedBy")
 		.lean();
 
-	const movie = await MovieModel.findById(req.params.id).lean();
-	const users = await UsersModel.find().lean();
-
+	const movie = await MovieModel.find({ reviewedBy: req.params.id }).lean();
+	const users = await UsersModel.findById(req.params.id).lean();
 	res.render("reviews/reviews-single", {
 		reviews,
-		users,
 		movie,
+		users,
 	});
 });
 

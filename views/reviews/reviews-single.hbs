@@ -14,14 +14,14 @@
 
 			<div class="user-frame-cnt">
 
-				{{#each reviewedTitle}}
-					<span class="users-reviews">{{rating}}
-						{{review}}
-					</span>
-				{{/each}}
+				{{#each reviews}}
+					<span class="users-reviews">{{rating}}-{{review}}</span>
 
-				{{#each title}}
-					<span class="users-reviews">{{title.title}}</span>
+					<span class="users-reviews">{{reviewedBy.username}}</span>
+
+					<span class="users-reviews">{{reviewedTitle.title}}</span>
+
+					<span class="users-reviews">{{_id}}</span>
 				{{/each}}
 			</div>
 
