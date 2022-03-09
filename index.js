@@ -25,6 +25,9 @@ const frontPageRoute = require("./routes/front-pageRoute");
 const filmListRoute = require("./routes/film-listRoute");
 const reviewsRoute = require("./routes/reviewsRoute");
 
+// UsersModel
+
+const UsersModel = require("./models/UsersModels");
 // APP INIT
 const app = express();
 
@@ -98,8 +101,11 @@ app.get(
     UsersModel.findOne({ googleId }, async (err, user) => {
       const userData = { username: req.user.username };
 
+      const userGoogle = { username: req.user.displayName };
+      console.log(user);
+
       if (user) {
-        userData.id = user._id;
+        userGoogle.id = user._id;
       } else {
         const newUser = new UsersModel({
           googleId,
@@ -107,7 +113,7 @@ app.get(
         });
         const result = await newUser.save();
 
-        userData.id = result._id;
+        userGoogle.id = result._id;
       }
 
       //userdata : (googleId, Id)
