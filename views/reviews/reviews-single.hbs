@@ -1,0 +1,32 @@
+<div class="review-single-cnt">
+
+	<div class="big-review-frame">
+
+		<div class="big-review-card">
+
+			<span class="big-movie-title">{{movie.title}}</span>
+
+		</div>
+
+		<div class="big-text-cnt">
+
+			<span class="reviews-by">USER REVIEWS:</span>
+
+			<div class="user-frame-cnt">
+
+				{{#each reviewedTitle}}
+					<span class="users-reviews">{{rating}}
+						{{review}}
+					</span>
+				{{/each}}
+
+				{{#each title}}
+					<span class="users-reviews">{{title.title}}</span>
+				{{/each}}
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

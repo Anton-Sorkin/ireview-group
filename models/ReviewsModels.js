@@ -4,6 +4,7 @@ const reviewSchema = new Schema({
 	review: { type: String, required: true },
 	rating: { type: Number, required: true },
 	reviewedBy: { type: Schema.Types.ObjectId, ref: "Users", required: true },
+	reviewedTitle: { type: Schema.Types.ObjectId, ref: "Movies", required: true },
 });
 
 const ReviewsModel = model("Reviews", reviewSchema);

@@ -808,7 +808,7 @@ body {
   right: -100%;
   height: 100%;
   width: 100%;
-  background: linear-gradient(#631d3a, #1a5872);
+  background: linear-gradient(#2b1628f3, #2c0f23f5);
   transition: all 0.3s ease-in-out;
 }
 
@@ -987,4 +987,160 @@ input[type=checkbox] {
 
 .rating-box:focus {
   outline: none;
+}
+
+.review-list-main-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#631d3a, #1a5872);
+  width: 100vw;
+  height: 100vh;
+}
+
+.movie-review-cnt {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4em;
+  gap: 3em;
+  height: 75vh;
+  overflow: scroll;
+}
+
+.review-list-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+  margin: 1rem;
+}
+
+.reviews-title-big {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+}
+
+.movie-review-card {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  background-color: #e0e0e0;
+  padding: 2em;
+  border-radius: 0.4em;
+  width: 88vw;
+  gap: 2em;
+}
+
+.review-poster-cnt {
+  width: 100px;
+}
+
+.review-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4em;
+}
+
+.title-review {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.synopsis-review {
+  font-size: 1.2rem;
+}
+
+.genre-review {
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.review-link-cnt {
+  display: flex;
+  margin-top: 1em;
+}
+
+.read-review-li {
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: #631d3a;
+  text-decoration: none;
+  padding: 0.4em;
+  border-radius: 0.2em;
+}
+
+.read-review-li:visited {
+  color: #ffffff;
+}
+
+.read-review-li:hover {
+  opacity: 0.7;
+}
+
+@media (min-width: 600px) {
+  .movie-review-card {
+    width: 30vw;
+  }
+}
+.review-single-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
+}
+
+.big-review-frame {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 80vh;
+  gap: 1.5em;
+}
+
+.big-movie-title {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.big-review-card {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.big-text-cnt {
+  display: flex;
+  justify-content: center;
+  margin: 0.2em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.reviews-by {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  margin: 2em;
+}
+
+.user-frame-cnt {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  overflow: scroll;
+}
+
+.users-reviews {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
 }
