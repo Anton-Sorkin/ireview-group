@@ -51,6 +51,8 @@ app.use((req, res, next) => {
     res.locals.loginInfo =
       tokenData.username + " " + tokenData.userId + " " + tokenData.role;
     res.locals.loginUser = tokenData.username;
+    res.locals.loginId = tokenData.userId;
+    console.log(tokenData);
   } else {
     res.locals.loginInfo = "not logged in";
   }

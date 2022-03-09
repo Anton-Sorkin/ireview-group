@@ -7,28 +7,27 @@ const MovieModel = require("../models/MovieModels.js");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-	const movies = await MovieModel.find().lean();
-	const users = await UsersModel.find().lean();
-	res.render("reviews/write-review", { movies, users });
+  const movies = await MovieModel.find().lean();
+  const users = await UsersModel.find().lean();
+  res.render("reviews/write-review", { movies, users });
 });
 
 router.get("/list", async (req, res) => {
-	const reviews = await ReviewsModel.find().populate("reviewedBy").lean();
-	const users = await UsersModel.find().lean();
+  const reviews = await ReviewsModel.find().populate("reviewedBy").lean();
 
-	res.render("reviews/reviews-list", { reviews, users });
+  res.render("reviews/reviews-list", { reviews, users });
 });
 
 router.post("/write-review", async (req, res) => {
-	// const user = await UsersModel.findById();
-	const newReview = new ReviewsModel({
-		review: req.body.review,
-		rating: req.body.rating,
-		reviewedBy: req.body.reviewedBy,
-	});
+  // const user = await UsersModel.findById();
+  const newReview = new ReviewsModel({
+    review: req.body.review,
+    rating: req.body.rating,
+    reviewedBy: req.body.reviewedBy,
+  });
 
-	await newReview.save();
-	res.redirect("/reviews/list");
+  await newReview.save();
+  res.redirect("/reviews/list");
 });
 
 module.exports = router;
