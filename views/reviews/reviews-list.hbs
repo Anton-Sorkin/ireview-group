@@ -1,10 +1,31 @@
-<h2>REVIEWS</h2>
+<div class="review-list-main-cnt">
+	<div class="review-list-frame">
+		<span class="reviews-title-big">REVIEWS</span>
+		<div class="movie-review-cnt">
+			{{#each movies}}
+				<div class="movie-review-card">
 
-{{#each users}}
-	<h2>{{username}}</h2>
-{{/each}}
+					<div class="img-list-cnt">
+						<img src="{{img}}" alt="Move Poster" class="review-poster-cnt" />
+					</div>
+					<div class="review-text-box">
+						<span class="title-review">{{title}}</span>
+						<span class="synopsis-review">{{description}}</span>
+						<span class="genre-review">{{genre}}</span>
+						<div class="review-link-cnt">
 
-{{#each reviews}}
-	<h2>{{review}} {{reviewedBy.username}}</h2>
-	<h2></h2>
-{{/each}}
+							<span>
+								<a href="/reviews/{{_id}}" class="read-review-li">Read User
+									Reviews</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+			{{#each reviews}}
+				{{review}}
+				{{reviewedBy.username}}
+			{{/each}}
+		</div>
+	</div>
+</div>
