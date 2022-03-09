@@ -44,8 +44,6 @@ app.use((req, res, next) => {
 		const tokenData = jwt.decode(token, process.env.JWT_SECRET);
 		res.locals.loginInfo =
 			tokenData.username + " " + tokenData.userId + " " + tokenData.role;
-
-		console.log(tokenData);
 	} else {
 		res.locals.loginInfo = "not logged in";
 	}
