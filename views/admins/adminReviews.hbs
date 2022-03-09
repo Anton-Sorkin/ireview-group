@@ -1,10 +1,9 @@
 <div class="admin-reviews-container">
   <a href="/admin">Back to main page</a>
 
-  //replace with review model when avalible
   <ul>
-    {{#each users}}
-      <li>{{username}}</li><form
+    {{#each reviews}}
+      <li>{{review}}</li><form
         action="/admin/reviews/{{_id}}"
         method="post"
       ><button type="submit">Delete</button></form>
