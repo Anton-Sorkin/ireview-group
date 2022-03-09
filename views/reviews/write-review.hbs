@@ -7,9 +7,10 @@
 					<option value="{{_id}}">{{username}}</option>
 				{{/each}}
 			</select>
-			<select name="reviews" class="select-movie-box">
+			<select name="reviewedTitle" class="select-movie-box">
+				<option disabled selected>Choose Movie To Review</option>
 				{{#each movies}}
-					<option value="{{title}}">{{title}}</option>
+					<option value="{{_id}}">{{title}}</option>
 				{{/each}}
 			</select>
 			<span class="rating-to-ten">Choose a Rating 1-10</span>
