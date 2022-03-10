@@ -462,12 +462,14 @@ body {
   font-weight: 400;
   font-style: italic;
   color: #ffffff;
+  margin: 0.4em;
 }
 
 .weekly-card-cnt {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -482,7 +484,7 @@ body {
   margin: 1.5em;
   padding: 1.5em;
   border-radius: 0.4em;
-  background-color: #e0e0e0;
+  background-color: #ffffff;
 }
 
 .week-spans-cnt {
