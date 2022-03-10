@@ -54,16 +54,6 @@ router.post("/edit-profile/:id", async (req, res) => {
   });
 });
 
-// router.post("/edit-profile/:id/edit", async (req, res) => {
-//   const { favmovie, quote, quoteby, settingsBy } = req.body;
-//   const edit = await EditsModel.findById(req.params.id);
-
-//   edit.favmovie = favmovie;
-//   edit.quote = quote;
-//   edit.quoteby = quoteby;
-//   await edit.save();
-// });
-
 router.post("/edit-profile-pic/:id", async (req, res) => {
   const image = req.files.image;
   const picBy = req.body.picBy;
