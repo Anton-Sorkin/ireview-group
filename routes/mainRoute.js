@@ -10,7 +10,9 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
 	const users = await UsersModel.find().lean();
-	const movies = await MoviesModel.findOne({ title: "Die Hard" }).lean();
+	const movies = await MoviesModel.findOne({
+		title: "Who Killed Captain Alex?",
+	}).lean();
 
 	const { token } = req.cookies;
 

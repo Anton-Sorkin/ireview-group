@@ -17,22 +17,22 @@
 					<span class="fav-label">Favorite quote:</span>
 					<div class="quote-box-cnt">
 						<span class="span-quote">
-							{{#each settings}}
-								<q>{{quote}}</q>
-							{{/each}}
+
+							<q>{{user.settings.quote}}</q>
+
 						</span>
-						<span class="quote-by">{{#each settings}}
-								-{{quoteby}}
-							{{/each}}</span>
+						<span class="quote-by">
+							-{{user.settings.quoteby}}
+						</span>
 					</div>
 					<div class="fav-movie-cnt">
 
 						<span class="fav-label">Favorite movie right now:</span>
-						{{#each settings}}
-							<span class="fav-movie-title">
-								{{favmovie}}
-							</span>
-						{{/each}}
+
+						<span class="fav-movie-title">
+							{{user.settings.favmovie}}
+						</span>
+
 					</div>
 
 					<div class="settings-cnt">

@@ -23,16 +23,16 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-	const user = await UsersModel.findById(req.params.id).lean();
-	const settings = await SettingsModel.find({
-		settingsBy: req.params.id,
-	}).lean();
+	const user = await UsersModel.findById(req.params.id)
+		.populate("settings")
+		.lean();
+
 	const reviews = await ReviewsModel.find({ reviewedBy: req.params.id })
 		.populate("reviewedTitle")
 		.populate("reviewedBy")
 		.lean();
 
-	res.render("profiles/profiles-single", { user, settings, reviews });
+	res.render("profiles/profiles-single", { user, reviews });
 });
 
 router.get("/edit-profile/:id", async (req, res) => {
