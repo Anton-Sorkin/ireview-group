@@ -8,6 +8,7 @@ const SettingsModel = require("../models/SettingsModels.js");
 const MoviesModel = require("../models/MoviesModels.js");
 const ReviewsModel = require("../models/ReviewsModels.js");
 const PictureModel = require("../models/PictureModels");
+const { getUniqueFilename } = require("../utils/utils");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -70,7 +71,7 @@ router.post("/edit-profile-pic/:id", async (req, res) => {
   const image = req.files.image;
   const picBy = req.body.picBy;
 
-  const filename = getUniqueFilename(image.name);
+  const filename = utils.getUniqueFilename(image.name);
   const uploadPath = __dirname + "/../public/img/" + filename;
 
   await image.mv(uploadPath);
