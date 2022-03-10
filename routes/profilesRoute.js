@@ -7,7 +7,7 @@ const UsersModel = require("../models/UsersModels.js");
 const SettingsModel = require("../models/SettingsModels.js");
 const MoviesModel = require("../models/MoviesModels.js");
 const ReviewsModel = require("../models/ReviewsModels.js");
-
+const PictureModel = require("../models/PictureModels");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -31,17 +31,20 @@ router.get("/:id", async (req, res) => {
     .populate("reviewedTitle")
     .populate("reviewedBy")
     .lean();
+  const pic = await PictureModel.find({ picBy: req.params.id }).lean();
 
-  res.render("profiles/profiles-single", { user, settings, reviews });
+  res.render("profiles/profiles-single", { user, settings, reviews, pic });
+  console.log(pic);
 });
 
 router.get("/edit-profile/:id", async (req, res) => {
   const user = await UsersModel.findById(req.params.id)
     .populate("settings")
     .lean();
+  const pic = await PictureModel.find().populate("picBy").lean();
 
-  console.log("USER\n", user.settings);
-  res.render("profiles/profiles-edit", { user });
+  // console.log("USER\n", user.settings);
+  res.render("profiles/profiles-edit", { user, pic });
 });
 
 router.post("/edit-profile/:id/:userId", async (req, res) => {
@@ -78,7 +81,7 @@ router.post("/edit-profile-pic/:id", async (req, res) => {
     picBy,
   });
 
-  const result = await picture.save();
+  await picture.save();
 
   res.redirect("/profiles");
 });

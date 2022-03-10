@@ -69,7 +69,7 @@ router.post("/edit-profile-pic/:id", async (req, res) => {
     picBy,
   });
 
-  const result = await picture.save();
+  await picture.save();
 
   res.redirect("/profiles");
 });
