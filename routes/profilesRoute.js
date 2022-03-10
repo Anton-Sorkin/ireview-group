@@ -34,8 +34,7 @@ router.get("/:id", async (req, res) => {
     .lean();
   const pic = await PictureModel.find({ picBy: req.params.id }).lean();
 
-  res.render("profiles/profiles-single", { user, settings, reviews, pic });
-  console.log(pic);
+  res.render("profiles/profiles-single", { user, reviews, pic });
 });
 
 router.get("/edit-profile/:id", async (req, res) => {
