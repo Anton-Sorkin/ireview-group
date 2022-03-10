@@ -1,9 +1,10 @@
 const express = require("express");
 const utils = require("../utils/utils.js");
-const UsersModel = require("../models/UsersModels.js");
-const MoviesModel = require("../models/MovieModels.js");
-const ReviewsModel = require("../models/ReviewsModels.js");
 const jwt = require("jsonwebtoken");
+
+const UsersModel = require("../models/UsersModels.js");
+const MoviesModel = require("../models/MoviesModels.js");
+const ReviewsModel = require("../models/ReviewsModels.js");
 
 const router = express.Router();
 
@@ -18,7 +19,6 @@ router.get("/", async (req, res) => {
 	} else {
 		res.redirect("/");
 	}
-	console.log(movies);
 });
 
 router.get("/log-out-user", (req, res) => {

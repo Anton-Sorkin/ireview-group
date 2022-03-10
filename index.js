@@ -21,13 +21,11 @@ const profilesRoute = require("./routes/profilesRoute");
 const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
 const mainRoute = require("./routes/mainRoute.js");
-const frontPageRoute = require("./routes/front-pageRoute");
-const filmListRoute = require("./routes/film-listRoute");
 const reviewsRoute = require("./routes/reviewsRoute");
 
-// UsersModel
-
+// USERSMODEL
 const UsersModel = require("./models/UsersModels");
+
 // APP INIT
 const app = express();
 
@@ -58,7 +56,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-// google auth - middleware for checking cookie token
+// GOOGLE AUTH - Middleware for checking cookie token
 app.use((req, res, next) => {
 	const { token } = req.cookies;
 
@@ -94,7 +92,6 @@ app.get(
 	passport.authenticate("google", { failureRedirect: "/failure" }),
 	async (req, res) => {
 		//Login with google successful
-		console.log(req.user);
 
 		const googleId = req.user.id;
 
@@ -102,7 +99,6 @@ app.get(
 			const userData = { username: req.user.username };
 
 			const userGoogle = { username: req.user.displayName };
-			console.log(user);
 
 			if (user) {
 				userGoogle.id = user._id;
@@ -145,8 +141,6 @@ app.use("/profiles", profilesRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/main", mainRoute);
-app.use("/front-page", frontPageRoute);
-app.use("/film-list", filmListRoute);
 app.use("/reviews", reviewsRoute);
 
 // ERROR ROUTE

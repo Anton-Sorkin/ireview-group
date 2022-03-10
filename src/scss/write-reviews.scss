@@ -13,7 +13,17 @@
 	display: flex;
 	flex-direction: column;
 	width: 30vw;
-	border: 1px solid red;
+}
+
+.review-card-cnt {
+	display: flex;
+	justify-content: center;
+	// gap: 2em;
+}
+
+.test-spanner {
+	font-size: 2rem;
+	color: #ffffff;
 }
 
 .review-form {
@@ -22,9 +32,21 @@
 	padding: 0;
 }
 
+.select-title {
+	border: none;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.rate-ten-cnt {
+	display: flex;
+	justify-content: center;
+	margin: 2em;
+}
+
 .rating-to-ten {
-	font-size: 1.2rem;
-	font-weight: 600;
+	font-size: 1.4rem;
+	font-weight: 700;
 	color: #ffffff;
 }
 
@@ -35,8 +57,74 @@
 
 .rating-box {
 	border: none;
+	width: 2vw;
 }
 
+.rating-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+.rating-div-cnt {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
+label {
+	color: #ffffff;
+	font-size: 1rem;
+}
+
+input[type="radio"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	font: inherit;
+	color: currentColor;
+	width: 2.15rem;
+	height: 2.15rem;
+	// border: 0.15em solid currentColor;
+	border-radius: 50%;
+	transform: translateY(-0.075em);
+	display: grid;
+	place-content: center;
+}
+
+input[type="radio"]::before {
+	content: "";
+	width: 2.35em;
+	height: 2.35em;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 2.65em 2.65em #f527a6;
+	// background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+	transform: scale(1);
+}
+
+// input[type="radio"]:focus {
+// 	outline: max(2px, 0.15em) solid currentColor;
+// }
+
 .rating-box:focus {
+	outline: none;
+}
+
+.review-box {
+	font-size: 1.2rem;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	margin: 0;
+}
+
+.review-box:focus {
 	outline: none;
 }

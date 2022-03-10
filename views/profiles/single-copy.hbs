@@ -1,107 +1,121 @@
 <div class="profile-cnt">
 
-  <div class="profile-card-cnt">
+	<div class="profile-card-cnt">
 
-    <div class="user-bundle-cnt">
+		<div class="user-bundle-cnt">
 
-      <div class="profile-pic-cnt">
+			<div class="profile-pic-cnt">
 
-        <img src="/img/clock-mock.png" alt="User" class="profile-pic" />
+				<img src="/img/defaultuser.png" alt="User" class="profile-pic" />
 
-      </div>
-      <div class="user-cnt">
+			</div>
+			<div class="user-cnt">
 
-        <div class="user-info-cnt">
+				<div class="user-info-cnt">
 
-          <span class="span-user-name">{{user.username}}</span>
-          <div class="quote-box-cnt">
-            <span class="span-quote">favorite quote:{{#each settings}}
-                {{quote}}
-              {{/each}}
-            </span>
-            <span class="quote-by">-Who Said'it:{{#each settings}}
-                {{quoteby}}
-              {{/each}}</span>
-          </div>
-          <span class="total-reviews">Name of movie:{{#each settings}}
-              {{favmovie}}
-            {{/each}}</span>
+					<span class="span-user-name">{{user.username}}</span>
+					<span class="fav-label">Favorite quote:</span>
+					<div class="quote-box-cnt">
+						<span class="span-quote">
+							{{#each settings}}
+								<q>{{quote}}</q>
+							{{/each}}
+						</span>
+						<span class="quote-by">{{#each settings}}
+								-{{quoteby}}
+							{{/each}}</span>
+					</div>
+					<div class="fav-movie-cnt">
 
-          <div class="timestamp-cnt">
-            <span class="timestamp-span">Member Since: 2022</span>
-          </div>
+						<span class="fav-label">Favorite movie right now:</span>
+						{{#each settings}}
+							<span class="fav-movie-title">
+								{{favmovie}}
+							</span>
+						{{/each}}
+					</div>
 
-          <div class="settings-cnt">
-            <a href="/profiles/edit-profile/{{user._id}}"><span
-                class="settings-span"
-              >SETTINGS</span></a>
-          </div>
+					<div class="settings-cnt">
+						<span class="settings-span">
+							<a href="/profiles/edit-profile/{{user._id}}" class="settings-a">
+								SETTINGS
+							</a>
+						</span>
 
-        </div>
+						<div class="timestamp-cnt">
+							<span class="timestamp-span">Member Since: 2022</span>
+						</div>
 
-      </div>
+					</div>
 
-    </div>
+				</div>
 
-    <div class="reviewed-movies-cnt">
+			</div>
 
-      <div class="movies-cnt">
+		</div>
 
-        <div class="reviewed-watched-cnt">
+		<div class="reviewed-movies-cnt">
 
-          <span class="reviewed-watched-span">Movies Watched &amp; Reviewed</span>
+			<div class="movies-cnt">
 
-        </div>
+				<div class="reviewed-watched-cnt">
 
-        <div class="movie-wrapper">
-          <div class="movie-badge-cnt">
+					<span class="reviewed-watched-span">Movies Watched &amp; Reviewed</span>
 
-            <div class="movieposter-cnt">
-              <img
-                src="/img/diehard-mock.jpeg"
-                alt="Die Hard - 1988"
-                class="movieposter"
-              />
-            </div>
-            <div class="movie-info-cnt">
+				</div>
 
-              <div class="movie-title-cnt">
-                <span class="movie-title">DIE HARD</span>
-              </div>
-              <div class="synopsis-cnt">
-                <span class="synopsis-span">An NYPD officer tries to save his
-                  wife and several others taken hostage by German terrorists
-                  during a Christmas party at the Nakatomi Plaza in Los Angeles.
-                </span>
+				<div class="movie-wrapper">
+					{{#each reviews}}
+						<div class="movie-badge-cnt">
 
-              </div>
+							<div class="movieposter-cnt">
+								<img
+									src="{{reviewedTitle.img}}"
+									alt="{{reviewedTitle.title}}"
+									class="movieposter"
+								/>
+							</div>
+							<div class="movie-info-cnt">
 
-              <span class="imdb-span">
-                <a
-                  href="https://www.imdb.com/title/tt0095016/?ref_=nv_sr_srsg_0"
-                  class="imdb-link"
-                >IMDB-link</a>
-              </span>
+								<div class="movie-title-cnt">
+									<span class="movie-title">{{reviewedTitle.title}}</span>
+								</div>
+								<div class="synopsis-cnt">
+									<span class="synopsis-span">
+										{{reviewedTitle.description}}
+									</span>
 
-              <div class="review-and-stars">
-                <div class="rating-cnt">
-                  <span class="user-rating">User Rating:</span>
-                  <span class="stars">★★★★★</span>
-                </div>
-                <div class="read-review-cnt">
-                  <a href="/linktoidreview" class="read-review">Read Review</a>
-                </div>
-              </div>
-            </div>
+								</div>
 
-          </div>
+								<span class="imdb-span">
+									<a
+										href="https://www.imdb.com/title/tt0095016/?ref_=nv_sr_srsg_0"
+										class="imdb-link"
+									>IMDB-link</a>
+								</span>
 
-          {{!-- {{> movie-mock }} --}}
-        </div>
+								<div class="review-and-stars">
+									<div class="rating-cnt">
+										<span class="user-rating">User Rating:</span>
+										<span class="stars">{{rating}} / 10</span>
+									</div>
+									<div class="read-review-cnt">
+										<a
+											href="/reviews/user-review/{{_id}}"
+											class="read-review"
+										>Read Review</a>
+									</div>
+								</div>
+							</div>
 
-      </div>
-    </div>
+						</div>
+					{{/each}}
 
-  </div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
 
 </div>

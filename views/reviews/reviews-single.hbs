@@ -5,23 +5,25 @@
 		<div class="big-review-card">
 
 			<span class="big-movie-title">{{movie.title}}</span>
+			<img src="{{movie.img}}" alt="{{title}}" class="rev-poster" />
 
 		</div>
 
 		<div class="big-text-cnt">
 
-			<span class="reviews-by">USER REVIEWS:</span>
+			<span class="reviews-by">CHECK OUT USER TAKES ON THIS FILM{{reviewedTitle.title}}</span>
 
 			<div class="user-frame-cnt">
 
 				{{#each reviews}}
-					<span class="users-reviews">{{rating}}-{{review}}</span>
 
-					<span class="users-reviews">{{reviewedBy.username}}</span>
+					<span class="users-reviews">
+						<a
+							href="/reviews/user-review/{{_id}}"
+							class="user-li-review"
+						>{{reviewedBy.username}}</a>
+					</span>
 
-					<span class="users-reviews">{{reviewedTitle.title}}</span>
-
-					<span class="users-reviews">{{_id}}</span>
 				{{/each}}
 			</div>
 
