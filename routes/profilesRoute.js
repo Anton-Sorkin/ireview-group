@@ -32,7 +32,7 @@ router.get("/:id", async (req, res) => {
 		.populate("reviewedBy")
 		.lean();
 
-	res.render("profiles/single-copy", { user, settings, reviews });
+	res.render("profiles/profiles-single", { user, settings, reviews });
 });
 
 router.get("/edit-profile/:id", async (req, res) => {
@@ -41,7 +41,7 @@ router.get("/edit-profile/:id", async (req, res) => {
 		.lean();
 
 	console.log("USER\n", user.settings);
-	res.render("profiles/edit-profiles", { user });
+	res.render("profiles/profiles-edit", { user });
 });
 
 router.post("/edit-profile/:id/:userId", async (req, res) => {
