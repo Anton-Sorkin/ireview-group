@@ -25,6 +25,7 @@ const reviewsRoute = require("./routes/reviewsRoute");
 
 // USERSMODEL
 const UsersModel = require("./models/UsersModels");
+const SettingsModel = require("./models/SettingsModels.js");
 
 // APP INIT
 const app = express();
@@ -61,13 +62,13 @@ app.use((req, res, next) => {
 			tokenData.username + " " + tokenData.userId + " " + tokenData.role;
 		res.locals.loginUser = tokenData.username;
 		res.locals.loginId = tokenData.userId;
+		res.locals.isLoggedIn = true;
 	} else {
 		res.locals.loginInfo = "not logged in";
+		res.locals.isLoggedIn = false;
 	}
 	next();
 });
-
-
 
 app.get("/", (req, res) => {
 	res.render("home");
@@ -87,34 +88,39 @@ app.get(
 	"/google/callback",
 	passport.authenticate("google", { failureRedirect: "/failure" }),
 	async (req, res) => {
-
 		const googleId = req.user.id;
 
 		UsersModel.findOne({ googleId }, async (err, user) => {
 			const userData = {};
-	
+
 			if (user) {
-				userData.id = user._id; 
+				userData.id = user._id;
 				userData.username = user.username;
 			} else {
+				const newSetting = new SettingsModel({
+					favmovie: "",
+					quote: "",
+					quoteby: "",
+				});
+				const settingsResult = await newSetting.save();
+
 				const newUser = new UsersModel({
 					googleId,
 					username: req.user.displayName,
+					settings: settingsResult._id,
 				});
 				const result = await newUser.save();
 
 				userData.id = result._id;
 				userData.username = req.user.displayName;
-
 			}
 
 			const token = jwt.sign(userData, process.env.JWT_SECRET);
 
 			res.cookie("token", token);
-			console.log(req.user._json)
+			console.log(req.user._json);
 
 			res.redirect("/main");
-
 		});
 	}
 );
