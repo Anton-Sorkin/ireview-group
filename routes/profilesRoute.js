@@ -63,4 +63,24 @@ router.post("/edit-profile/:id/:userId", async (req, res) => {
   );
 });
 
+router.post("/edit-profile-pic/:id", async (req, res) => {
+  const image = req.files.image;
+  const picBy = req.body.picBy;
+
+  const filename = getUniqueFilename(image.name);
+  const uploadPath = __dirname + "/../public/img/" + filename;
+
+  await image.mv(uploadPath);
+
+  const picture = new PictureModel({
+    name: req.body.name,
+    imageUrl: "/img/" + filename,
+    picBy,
+  });
+
+  const result = await picture.save();
+
+  res.redirect("/profiles");
+});
+
 module.exports = router;
