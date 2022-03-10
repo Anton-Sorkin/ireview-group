@@ -3,17 +3,61 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	width: 100vw;
 	height: 100vh;
 	background: linear-gradient(#360f1f, #0b2530);
 }
 
+.this-week {
+	font-size: 3rem;
+	font-weight: 400;
+	font-style: italic;
+	color: #ffffff;
+}
+
 .weekly-card-cnt {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	text-align: center;
 }
 
 .weekly-title {
 	font-size: 4rem;
+	font-weight: 600;
 	color: #ffffff;
+}
+
+.weekly-poster {
+	width: 250px;
+	margin: 1.5em;
+	padding: 1.5em;
+	border-radius: 0.4em;
+	background-color: #e0e0e0;
+}
+
+.week-spans-cnt {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.week-spans {
+	margin: 2em;
+}
+
+.a-week {
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: #ffffff;
+	text-decoration: none;
+	background: #882f54;
+	text-decoration: none;
+	padding: 0.4em;
+	border-radius: 0.2em;
+}
+
+.a-week:hover {
+	opacity: 0.7;
 }

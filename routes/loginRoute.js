@@ -1,7 +1,8 @@
 const express = require("express");
 const utils = require("../utils/utils.js");
-const UsersModel = require("../models/UsersModels.js");
 const jwt = require("jsonwebtoken");
+
+const UsersModel = require("../models/UsersModels.js");
 
 const router = express.Router();
 
@@ -27,7 +28,6 @@ router.post("/", async (req, res) => {
 			res.send("Login failed");
 		}
 	});
-	//   console.log(req.body);
 });
 
 module.exports = router;

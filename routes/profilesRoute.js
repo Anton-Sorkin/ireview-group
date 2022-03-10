@@ -1,53 +1,60 @@
 const express = require("express");
 const utils = require("../utils/utils.js");
-const UsersModel = require("../models/UsersModels.js");
-const EditsModel = require("../models/EditsModels");
 const jwt = require("jsonwebtoken");
+
+const UsersModel = require("../models/UsersModels.js");
+const EditsModel = require("../models/EditsModels.js");
+const MoviesModel = require("../models/MoviesModels.js");
+const ReviewsModel = require("../models/ReviewsModels.js");
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const users = await UsersModel.find().lean();
+	const users = await UsersModel.find().lean();
 
-  const { token } = req.cookies;
+	const { token } = req.cookies;
 
-  if (token && jwt.verify(token, process.env.JWT_SECRET)) {
-    res.render("profiles/profiles-list", { users });
-  } else {
-    res.render("notFound.hbs");
-  }
+	if (token && jwt.verify(token, process.env.JWT_SECRET)) {
+		res.render("profiles/profiles-list", { users });
+	} else {
+		res.render("notFound.hbs");
+	}
 });
 
 router.get("/:id", async (req, res) => {
-  const user = await UsersModel.findById(req.params.id).lean();
-  const settings = await EditsModel.find({ settingsBy: req.params.id }).lean();
+	const user = await UsersModel.findById(req.params.id).lean();
+	const settings = await EditsModel.find({ settingsBy: req.params.id }).lean();
+	const reviews = await ReviewsModel.find({ reviewedBy: req.params.id })
+		.populate("reviewedTitle")
+		.populate("reviewedBy")
+		.lean();
 
-  console.log(settings);
-  res.render("profiles/single-copy", { user, settings });
+	console.log(user);
+	res.render("profiles/single-copy", { user, settings, reviews });
 });
 
 router.get("/edit-profile/:id", async (req, res) => {
-  const settings = await EditsModel.find().populate("settingsBy").lean();
+	const settings = await EditsModel.find().populate("settingsBy").lean();
 
-  const user = await UsersModel.findById(req.params.id).lean();
-  res.render("profiles/edit-profiles", { user, settings });
+	const user = await UsersModel.findById(req.params.id).lean();
+	res.render("profiles/edit-profiles", { user, settings });
 });
 
 router.post("/edit-profile/:id", async (req, res) => {
-  const { favmovie, quote, quoteby, settingsBy } = req.body;
+	const { favmovie, quote, quoteby, settingsBy } = req.body;
 
-  EditsModel.findOne({ favmovie }, async () => {
-    const newEdit = new EditsModel({
-      favmovie,
-      quote,
-      quoteby,
-      settingsBy,
-    });
+	EditsModel.find({ favmovie }, async () => {
+		const newEdit = new EditsModel({
+			favmovie,
+			quote,
+			quoteby,
+			settingsBy,
+		});
 
-    await newEdit.save();
+		await newEdit.save();
 
-    res.redirect("/main");
-  });
+		res.redirect("/profiles");
+	});
 });
 
 module.exports = router;

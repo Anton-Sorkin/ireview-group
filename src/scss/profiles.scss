@@ -33,11 +33,10 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-top: 1em;
 	border-radius: 0.7em;
 	padding: 2em;
 	width: 84vw;
-	gap: 1.4em;
+	gap: 1em;
 
 	background-color: #e0e0e0;
 	margin: 1em;
@@ -64,15 +63,46 @@
 	margin: 1em;
 }
 
+.fav-movie-cnt {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4em;
+	margin-bottom: 1em;
+}
+
+.settings-cnt {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.settings-a {
+	font-size: 1rem;
+	font-weight: 600;
+	text-decoration: none;
+	// color: #303030;
+
+	color: #ffffff;
+
+	text-decoration: none;
+	background-color: #da4981;
+	padding: 0.4em;
+	border-radius: 0.4em;
+}
+
+.settings-a:hover {
+	opacity: 0.7;
+}
+
 .timestamp-cnt {
 	display: flex;
 	justify-content: flex-end;
 }
 
 .timestamp-span {
-	font-size: 0.8rem;
-	font-weight: 600;
-	text-align: end;
+	font-size: 1rem;
+	font-weight: 400;
+
 	font-style: italic;
 }
 
@@ -84,18 +114,28 @@
 .span-user-name {
 	font-weight: 700;
 	font-size: 1.6rem;
+	color: #b63e6c;
 }
 
 .quote-box-cnt {
 	display: flex;
 	flex-direction: column;
-	gap: 0.3em;
+	gap: 0.5em;
+}
+
+.fav-label {
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.fav-movie-title {
+	font-size: 1.2rem;
 }
 
 .span-quote {
-	font-weight: 100;
+	font-size: 1.2rem;
+	font-weight: 300;
 	font-style: italic;
-	font-size: 1.4rem;
 }
 
 .quote-by {
@@ -113,14 +153,14 @@
 }
 
 .movies-cnt {
- 	display: flex;
- 	flex-direction: column;
- 	background-color: #e0e0e0;
- 	border-radius: 0.8em;
- 	width: 84vw;
- 	height: 50vh;
- 	padding: 2em;
- 	gap: 2em;
+	display: flex;
+	flex-direction: column;
+	background-color: #e0e0e0;
+	border-radius: 0.8em;
+	width: 84vw;
+	height: 50vh;
+	padding: 2em;
+	gap: 2em;
 }
 
 .movie-badge-cnt {
@@ -210,7 +250,7 @@
 
 .stars {
 	font-size: 1.2rem;
-	color: orange;
+	font-weight: 400;
 }
 
 @media (min-width: 768px) {

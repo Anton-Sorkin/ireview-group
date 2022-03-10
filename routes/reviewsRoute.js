@@ -1,21 +1,23 @@
 const express = require("express");
 const utils = require("../utils/utils.js");
+
 const UsersModel = require("../models/UsersModels.js");
 const ReviewsModel = require("../models/ReviewsModels.js");
-const MovieModel = require("../models/MovieModels.js");
+const MoviesModel = require("../models/MoviesModels.js");
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-	const movies = await MovieModel.find().lean();
+	const movies = await MoviesModel.find().lean();
 	const users = await UsersModel.find().lean();
 	res.render("reviews/reviews-list", { movies, users });
 });
 
 router.get("/write-review", async (req, res) => {
-	const movies = await MovieModel.find().lean();
+	const movies = await MoviesModel.find().lean();
 	const users = await UsersModel.find().lean();
 	// const reviews = await ReviewsModel.find().lean();
+
 	res.render("reviews/write-review", { movies, users });
 });
 
@@ -37,7 +39,7 @@ router.get("/:id", async (req, res) => {
 		.populate("reviewedBy")
 		.lean();
 
-	const movie = await MovieModel.find({ reviewedBy: req.params.id }).lean();
+	const movie = await MoviesModel.findById(req.params.id).lean();
 	const users = await UsersModel.findById(req.params.id).lean();
 	res.render("reviews/reviews-single", {
 		reviews,
@@ -46,12 +48,12 @@ router.get("/:id", async (req, res) => {
 	});
 });
 
-// router.get("/:id", async (req, res) => {
-// 	const review = await ReviewsModel.findById(req.params.id)
-// 		.populate("reviewedBy")
-// 		.lean();
+router.get("/user-review/:id", async (req, res) => {
+	const review = await ReviewsModel.findById(req.params.id).lean();
 
-// 	res.render("reviews/reviews-single", review);
-// });
+	console.log(review);
+
+	res.render("reviews/reviews-user", { review });
+});
 
 module.exports = router;

@@ -2,8 +2,18 @@
 
 	<div class="weekly-main-cnt">
 		<div class="weekly-card-cnt">
-
+			<span class="this-week">THIS WEEKS MOVIE</span>
 			<span class="weekly-title">{{movies.title}}</span>
+			<img src="{{movies.img}}" alt="{{movies.title}}" class="weekly-poster" />
+
+			<div class="week-spans-cnt">
+				<span class="week-spans">
+					<a href="/reviews/write-review" class="a-week">Write a Review</a>
+				</span>
+				<span class="week-spans">
+					<a href="/reviews/{{movies._id}}" class="a-week">Read Reviews</a>
+				</span>
+			</div>
 
 		</div>
 	</div>
