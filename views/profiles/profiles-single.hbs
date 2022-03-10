@@ -1,119 +1,123 @@
 <div class="profile-cnt">
 
-  <div class="profile-card-cnt">
+	<div class="profile-card-cnt">
 
-    <div class="user-bundle-cnt">
+		<div class="user-bundle-cnt">
 
-      <div class="profile-pic-cnt">
+			 <div class="profile-pic-cnt">
 
-        <img src="/img/defaultuser.png" alt="User" class="profile-pic" />
+        	{{#if pic}}
+        		<img src="{{#each pic}}{{imageUrl}}{{/each}}" alt="User" class="profile-pic" />
+        	{{else}}
+        		<img src="/img/defaultuser.png" alt="User" class="profile-pic" />
+        	{{/if}}
+      		</div>
 
-      </div>
-      <div class="user-cnt">
+			<div class="user-cnt">
 
-        <div class="user-info-cnt">
+				<div class="user-info-cnt">
 
-          <span class="span-user-name">{{user.username}}</span>
-          <span class="fav-label">Favorite quote:</span>
-          <div class="quote-box-cnt">
-            <span class="span-quote">
-              {{#each settings}}
-                <q>{{quote}}</q>
-              {{/each}}
-            </span>
-            <span class="quote-by">{{#each settings}}
-                -{{quoteby}}
-              {{/each}}</span>
-          </div>
-          <div class="fav-movie-cnt">
+					<span class="span-user-name">{{user.username}}</span>
+					<span class="fav-label">Favorite quote:</span>
+					<div class="quote-box-cnt">
+						<span class="span-quote">
+							{{#each settings}}
+								<q>{{quote}}</q>
+							{{/each}}
+						</span>
+						<span class="quote-by">{{#each settings}}
+								-{{quoteby}}
+							{{/each}}</span>
+					</div>
+					<div class="fav-movie-cnt">
 
-            <span class="fav-label">Favorite movie right now:</span>
-            {{#each settings}}
-              <span class="fav-movie-title">
-                {{favmovie}}
-              </span>
-            {{/each}}
-          </div>
+						<span class="fav-label">Favorite movie right now:</span>
+						{{#each settings}}
+							<span class="fav-movie-title">
+								{{favmovie}}
+							</span>
+						{{/each}}
+					</div>
 
-          <div class="settings-cnt">
-            <span class="settings-span">
-              {{#if (checkIfIdsAreSame user._id loginId)}}
-                <a
-                  href="/profiles/edit-profile/{{user._id}}"
-                  class="settings-a"
-                >
-                  SETTINGS
-                </a>
-              {{/if}}
-            </span>
+					<div class="settings-cnt">
+						<span class="settings-span">
+							{{#if (checkIfIdsAreSame user._id loginId)}}
+								<a
+									href="/profiles/edit-profile/{{user._id}}"
+									class="settings-a"
+								>
+									SETTINGS
+								</a>
+							{{/if}}
+						</span>
 
-            <div class="timestamp-cnt">
-              <span class="timestamp-span">Member Since: 2022</span>
-            </div>
+						<div class="timestamp-cnt">
+							<span class="timestamp-span">Member Since: 2022</span>
+						</div>
 
-          </div>
+					</div>
 
-        </div>
+				</div>
 
-      </div>
+			</div>
 
-    </div>
+		</div>
 
-    <div class="reviewed-movies-cnt">
+		<div class="reviewed-movies-cnt">
 
-      <div class="movies-cnt">
+			<div class="movies-cnt">
 
-        <div class="reviewed-watched-cnt">
+				<div class="reviewed-watched-cnt">
 
-          <span class="reviewed-watched-span">Movies Watched &amp; Reviewed</span>
+					<span class="reviewed-watched-span">Movies Watched &amp; Reviewed</span>
 
-        </div>
+				</div>
 
-        <div class="movie-wrapper">
-          {{#each reviews}}
-            <div class="movie-badge-cnt">
+				<div class="movie-wrapper">
+					{{#each reviews}}
+						<div class="movie-badge-cnt">
 
-              <div class="movieposter-cnt">
-                <img
-                  src="{{reviewedTitle.img}}"
-                  alt="{{reviewedTitle.title}}"
-                  class="movieposter"
-                />
-              </div>
-              <div class="movie-info-cnt">
+							<div class="movieposter-cnt">
+								<img
+									src="{{reviewedTitle.img}}"
+									alt="{{reviewedTitle.title}}"
+									class="movieposter"
+								/>
+							</div>
+							<div class="movie-info-cnt">
 
-                <div class="movie-title-cnt">
-                  <span class="movie-title">{{reviewedTitle.title}}</span>
-                </div>
-                <div class="synopsis-cnt">
-                  <span class="synopsis-span">
-                    {{reviewedTitle.description}}
-                  </span>
+								<div class="movie-title-cnt">
+									<span class="movie-title">{{reviewedTitle.title}}</span>
+								</div>
+								<div class="synopsis-cnt">
+									<span class="synopsis-span">
+										{{reviewedTitle.description}}
+									</span>
 
-                </div>
+								</div>
 
-                <div class="review-and-stars">
-                  <div class="rating-cnt">
-                    <span class="user-rating">User Rating:</span>
-                    <span class="stars">{{rating}} / 10</span>
-                  </div>
-                  <div class="read-review-cnt">
-                    <a
-                      href="/reviews/user-review/{{_id}}"
-                      class="read-review"
-                    >Read Review</a>
-                  </div>
-                </div>
-              </div>
+								<div class="review-and-stars">
+									<div class="rating-cnt">
+										<span class="user-rating">User Rating:</span>
+										<span class="stars">{{rating}} / 10</span>
+									</div>
+									<div class="read-review-cnt">
+										<a
+											href="/reviews/user-review/{{_id}}"
+											class="read-review"
+										>Read Review</a>
+									</div>
+								</div>
+							</div>
 
-            </div>
-          {{/each}}
+						</div>
+					{{/each}}
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-  </div>
+	</div>
 
 </div>
