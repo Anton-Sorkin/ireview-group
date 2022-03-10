@@ -41,13 +41,15 @@
 
 					<div class="settings-cnt">
 						<span class="settings-span">
-							{{#if (checkIfIdsAreSame user._id loginId)}}
-								<a
-									href="/profiles/edit-profile/{{user._id}}"
-									class="settings-a"
-								>
-									SETTINGS
-								</a>
+							{{#if isLoggedIn}}
+								{{#if (checkIfIdsAreSame user._id loginId)}}
+									<a
+										href="/profiles/edit-profile/{{user._id}}"
+										class="settings-a"
+									>
+										SETTINGS
+									</a>
+								{{/if}}
 							{{/if}}
 						</span>
 
