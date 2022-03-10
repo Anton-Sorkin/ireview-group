@@ -1,12 +1,32 @@
 <div class="user-review-cnt">
-	<div class="user-review-main-cnt">
-		<div class="user-review-card-cnt">
-			{{#each reviews}}
 
-				<span class="total-rating-review">{{reviewedTitle.title}}</span>
-				<span class="total-rating-review">{{rating}}</span>
-				<span class="the-user-review">{{review}}</span>
-			{{/each}}
+	<div class="user-review-main-cnt">
+
+		<div class="user-review-card-cnt">
+
+			<div class="total-score-cnt">
+
+				<span class="total-rating-review">{{review.rating}} / 10</span>
+			</div>
+
+			<div class="review-box-cnt">
+
+				<span class="the-user-review">{{review.review}}</span>
+			</div>
+
+			<div class="user-box-cnt">
+
+				<span class="user-review-by">
+					Review by:
+				</span>
+				<span class="by-span">
+					{{review.reviewedBy.username}}
+				</span>
+				<span class="back-to">
+					<a href="/reviews/{{review.reviewedTitle._id}}">Back to Reviews</a>
+				</span>
+			</div>
+
 		</div>
 	</div>
 </div>

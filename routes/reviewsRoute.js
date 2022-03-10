@@ -29,8 +29,9 @@ router.post("/write-review", async (req, res) => {
 		reviewedTitle: req.body.reviewedTitle,
 	});
 
-	await newReview.save();
-	res.redirect("/reviews");
+	const result = await newReview.save();
+	// console.log("HÄR PRUTTIS!\n", result);
+	res.redirect("/profiles/" + result.reviewedBy.toString());
 });
 
 router.get("/:id", async (req, res) => {
@@ -49,11 +50,13 @@ router.get("/:id", async (req, res) => {
 });
 
 router.get("/user-review/:id", async (req, res) => {
-	const review = await ReviewsModel.findById(req.params.id).lean();
+	const review = await ReviewsModel.findById(req.params.id)
+		.populate("reviewedBy")
+		.populate("reviewedTitle")
+		.lean();
+	const user = await UsersModel.findById(req.params.id).lean();
 
-	console.log(review);
-
-	res.render("reviews/reviews-user", { review });
+	res.render("reviews/reviews-user", { review, user });
 });
 
 module.exports = router;

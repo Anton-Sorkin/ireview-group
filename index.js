@@ -30,7 +30,18 @@ const UsersModel = require("./models/UsersModels");
 const app = express();
 
 // VIEW ENGINE
-app.engine("hbs", hbars.engine({ extname: "hbs", defaultLayout: "main" }));
+app.engine(
+	"hbs",
+	hbars.engine({
+		extname: "hbs",
+		defaultLayout: "main",
+		helpers: {
+			checkIfIdsAreSame: (idOne, idTwo) => {
+				return idOne.toString() == idTwo.toString();
+			},
+		},
+	})
+);
 
 app.set("view engine", "hbs");
 
