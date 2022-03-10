@@ -1,18 +1,18 @@
 <div class="profiles-list-cnt">
-	<span class="members-title">MEMBERS</span>
-	<div class="members-main-cnt">
-		{{#each users}}
-			<a href="/profiles/{{_id}}" class="users-list-s-link">
-				<div class="members-s-cnt">
-					<div class="p-pic-s-cnt">
-						<img src="/img/clock-mock.png" alt="{{username}}" class="p-pic-s" />
-					</div>
-					<div class="username-s-cnt">
-						<span class="username-s-span">{{username}}</span>
-					</div>
-				</div>
-			</a>
-		{{/each}}
+  <span class="members-title">MEMBERS</span>
+  <div class="members-main-cnt">
+    {{#each users}}
+      <a href="/profiles/{{_id}}" class="users-list-s-link">
+        <div class="members-s-cnt">
+          {{!-- <div class="p-pic-s-cnt">
+            <img src="/img/clock-mock.png" alt="{{username}}" class="p-pic-s" />
+          </div> --}}
+          <div class="username-s-cnt">
+            <span class="username-s-span">{{username}}</span>
+          </div>
+        </div>
+      </a>
+    {{/each}}
 
-	</div>
+  </div>
 </div>

@@ -12,6 +12,12 @@ const comparePassword = (password, hash) => {
   return correct;
 };
 
+const getUniqueFilename = (filename) => {
+  const timestamp = Date.now();
+  const extension = filename.split(".").pop();
+  return `${timestamp}.${extension}`;
+};
+
 const adminAuth = async (req, res, next) => {
   const { token } = req.cookies;
 
@@ -31,4 +37,5 @@ module.exports = {
   hashPassword,
   comparePassword,
   adminAuth,
+  getUniqueFilename,
 };
