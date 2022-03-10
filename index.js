@@ -25,6 +25,7 @@ const reviewsRoute = require("./routes/reviewsRoute");
 
 // USERSMODEL
 const UsersModel = require("./models/UsersModels");
+const SettingsModel = require("./models/SettingsModels.js");
 
 // APP INIT
 const app = express();
@@ -61,23 +62,11 @@ app.use((req, res, next) => {
 			tokenData.username + " " + tokenData.userId + " " + tokenData.role;
 		res.locals.loginUser = tokenData.username;
 		res.locals.loginId = tokenData.userId;
+		res.locals.isLoggedIn = true;
 	} else {
 		res.locals.loginInfo = "not logged in";
+		res.locals.isLoggedIn = false;
 	}
-	next();
-});
-
-// GOOGLE AUTH - Middleware for checking cookie token
-app.use((req, res, next) => {
-	const { token } = req.cookies;
-
-	if (token && jwt.verify(token, process.env.JWT_SECRET)) {
-		const tokenData = jwt.decode(token, process.env.JWT_SECRET);
-		res.locals.loginInfo = tokenData.username + " " + tokenData.id;
-	} else {
-		res.locals.loginInfo = "not logged in";
-	}
-
 	next();
 });
 
@@ -102,36 +91,39 @@ app.get(
 	"/google/callback",
 	passport.authenticate("google", { failureRedirect: "/failure" }),
 	async (req, res) => {
-		//Login with google successful
-
 		const googleId = req.user.id;
 
 		UsersModel.findOne({ googleId }, async (err, user) => {
-			const userData = { username: req.user.username };
-
-			const userGoogle = { username: req.user.displayName };
+			const userData = {};
 
 			if (user) {
-				userGoogle.id = user._id;
+				userData.id = user._id;
+				userData.username = user.username;
 			} else {
+				const newSetting = new SettingsModel({
+					favmovie: "",
+					quote: "",
+					quoteby: "",
+				});
+				const settingsResult = await newSetting.save();
+
 				const newUser = new UsersModel({
 					googleId,
-					username: req.user.username,
+					username: req.user.displayName,
+					settings: settingsResult._id,
 				});
 				const result = await newUser.save();
 
-				userGoogle.id = result._id;
+				userData.id = result._id;
+				userData.username = req.user.displayName;
 			}
-
-			//userdata : (googleId, Id)
-			// första parametern är datan vi vill signera, andra parametern är vår hemligthet,
 
 			const token = jwt.sign(userData, process.env.JWT_SECRET);
 
-			// ta token och spara i vår token-cookie
 			res.cookie("token", token);
+			console.log(req.user._json);
 
-			res.redirect("/");
+			res.redirect("/main");
 		});
 	}
 );

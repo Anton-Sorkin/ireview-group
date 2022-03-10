@@ -13,13 +13,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
 	const users = await UsersModel.find().lean();
 
-	const { token } = req.cookies;
-
-	if (token && jwt.verify(token, process.env.JWT_SECRET)) {
-		res.render("profiles/profiles-list", { users });
-	} else {
-		res.render("notFound.hbs");
-	}
+	res.render("profiles/profiles-list", { users });
 });
 
 router.get("/:id", async (req, res) => {
