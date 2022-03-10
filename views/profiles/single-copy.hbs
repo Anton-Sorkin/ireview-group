@@ -6,8 +6,11 @@
 
       <div class="profile-pic-cnt">
 
-        <img src="/img/clock-mock.png" alt="User" class="profile-pic" />
-
+        {{#if pic}}
+        <img src="{{#each pic}}{{imageUrl}}{{/each}}" alt="User" class="profile-pic" />
+        {{else}}
+        <img src="/img/1646919928772.jpeg" alt="User" class="profile-pic" />
+        {{/if}}
       </div>
       <div class="user-cnt">
 
@@ -32,9 +35,15 @@
           </div>
 
           <div class="settings-cnt">
+            {{!-- {{#if settings}}
+             <a href="/profiles/edit-profile/{{user._id}}/edit"><span
+                class="settings-span"
+              >Edit Settings</span></a>
+            {{else}}
             <a href="/profiles/edit-profile/{{user._id}}"><span
                 class="settings-span"
               >SETTINGS</span></a>
+            {{/if}} --}}
           </div>
 
         </div>

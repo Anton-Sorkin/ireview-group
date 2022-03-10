@@ -3,7 +3,7 @@
   <div class="edit-card-cnt">
 
     <form
-      action="/profile-pic/{{_id}}"
+      action="/profiles/edit-profile-pic/{{loginId}}"
       method="post"
       encType="multipart/form-data"
       class="pic-form-cnt"
@@ -11,13 +11,10 @@
 
       <fieldset class="field-pic">
 
-        <input
-          type="file"
-          name="profilepic"
-          id="profilepic"
-          class="choose-btn"
-        />
+        <input type="file" name="image" id="profilepic" class="choose-btn" />
       </fieldset>
+
+      <input type="text" name="picBy" value="{{loginId}}" hidden />
 
       <input type="submit" value="Upload Picture" class="upload-pic-btn" />
 
