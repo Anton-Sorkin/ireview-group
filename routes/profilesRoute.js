@@ -44,7 +44,7 @@ router.get("/edit-profile/:id", async (req, res) => {
     .lean();
   const pic = await PictureModel.find().populate("picBy").lean();
 
-  // console.log("USER\n", user.settings);
+  console.log("USER\n", user.settings);
   res.render("profiles/profiles-edit", { user, pic });
 });
 
@@ -71,7 +71,7 @@ router.post("/edit-profile-pic/:id", async (req, res) => {
   const image = req.files.image;
   const picBy = req.body.picBy;
 
-  const filename = utils.getUniqueFilename(image.name);
+  const filename = getUniqueFilename(image.name);
   const uploadPath = __dirname + "/../public/img/" + filename;
 
   await image.mv(uploadPath);
