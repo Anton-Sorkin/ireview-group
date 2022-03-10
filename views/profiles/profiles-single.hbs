@@ -4,15 +4,11 @@
 
 		<div class="user-bundle-cnt">
 
-			 <div class="profile-pic-cnt">
+			<div class="profile-pic-cnt">
 
-        	{{#if pic}}
-        		<img src="{{#each pic}}{{imageUrl}}{{/each}}" alt="User" class="profile-pic" />
-        	{{else}}
-        		<img src="/img/defaultuser.png" alt="User" class="profile-pic" />
-        	{{/if}}
-      		</div>
+				<img src="/img/defaultuser.png" alt="User" class="profile-pic" />
 
+			</div>
 			<div class="user-cnt">
 
 				<div class="user-info-cnt">
@@ -21,22 +17,22 @@
 					<span class="fav-label">Favorite quote:</span>
 					<div class="quote-box-cnt">
 						<span class="span-quote">
-							{{#each settings}}
-								<q>{{quote}}</q>
-							{{/each}}
+
+							<q>{{user.settings.quote}}</q>
+
 						</span>
-						<span class="quote-by">{{#each settings}}
-								-{{quoteby}}
-							{{/each}}</span>
+						<span class="quote-by">
+							-{{user.settings.quoteby}}
+						</span>
 					</div>
 					<div class="fav-movie-cnt">
 
 						<span class="fav-label">Favorite movie right now:</span>
-						{{#each settings}}
-							<span class="fav-movie-title">
-								{{favmovie}}
-							</span>
-						{{/each}}
+
+						<span class="fav-movie-title">
+							{{user.settings.favmovie}}
+						</span>
+
 					</div>
 
 					<div class="settings-cnt">
