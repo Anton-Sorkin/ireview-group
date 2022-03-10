@@ -37,9 +37,14 @@
 
 					<div class="settings-cnt">
 						<span class="settings-span">
-							<a href="/profiles/edit-profile/{{user._id}}" class="settings-a">
-								SETTINGS
-							</a>
+							{{#if (checkIfIdsAreSame user._id loginId)}}
+								<a
+									href="/profiles/edit-profile/{{user._id}}"
+									class="settings-a"
+								>
+									SETTINGS
+								</a>
+							{{/if}}
 						</span>
 
 						<div class="timestamp-cnt">
@@ -86,13 +91,6 @@
 									</span>
 
 								</div>
-
-								<span class="imdb-span">
-									<a
-										href="https://www.imdb.com/title/tt0095016/?ref_=nv_sr_srsg_0"
-										class="imdb-link"
-									>IMDB-link</a>
-								</span>
 
 								<div class="review-and-stars">
 									<div class="rating-cnt">

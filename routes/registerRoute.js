@@ -2,6 +2,7 @@ const express = require("express");
 const utils = require("../utils/utils.js");
 const UsersModel = require("../models/UsersModels.js");
 const ReviewsModel = require("../models/ReviewsModels.js");
+const SettingsModel = require("../models/SettingsModels.js");
 
 const router = express.Router();
 
@@ -19,12 +20,20 @@ router.post("/", async (req, res) => {
 		} else if (password !== confirmPassword) {
 			res.send("Passwords don't match!");
 		} else {
+			const newSetting = new SettingsModel({
+				favmovie: "",
+				quote: "",
+				quoteby: "",
+			});
+			const newSettingsResult = await newSetting.save();
+
 			const newUser = new UsersModel({
 				username,
 				hashedPassword: utils.hashPassword(password),
 				role,
 				secret,
 				reviews,
+				settings: newSettingsResult._id,
 			});
 
 			await newUser.save();

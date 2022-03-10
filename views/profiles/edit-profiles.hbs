@@ -1,57 +1,57 @@
 <div class="edit-main-cnt">
 
-  <div class="edit-card-cnt">
+	<div class="edit-card-cnt">
 
-    <form
-      action="/profile-pic/{{_id}}"
-      method="post"
-      encType="multipart/form-data"
-      class="pic-form-cnt"
-    >
+		<form
+			action="/profile-pic/{{_id}}"
+			method="post"
+			encType="multipart/form-data"
+			class="pic-form-cnt"
+		>
 
-      <fieldset class="field-pic">
+			<fieldset class="field-pic">
 
-        <input
-          type="file"
-          name="profilepic"
-          id="profilepic"
-          class="choose-btn"
-        />
-      </fieldset>
+				<input
+					type="file"
+					name="profilepic"
+					id="profilepic"
+					class="choose-btn"
+				/>
+			</fieldset>
 
-      <input type="submit" value="Upload Picture" class="upload-pic-btn" />
+			<input type="submit" value="Upload Picture" class="upload-pic-btn" />
 
-    </form>
+		</form>
 
-    <form
-      action="/profiles/edit-profile/{{loginId}}"
-      method="post"
-      class="edit-form"
-    >
-      <span class="edit-spans">What's your favorite movie?</span>
-      <input
-        type="text"
-        name="favmovie"
-        placeholder="All time favorite movie?"
-        class="edit-form-input"
-      />
-      <span class="edit-spans">Tell us a great quote...</span>
-      <input
-        type="text"
-        name="quote"
-        placeholder="Favorite Quote?"
-        class="edit-form-input"
-      />
-      <span class="edit-spans">...and who said it!</span>
-      <input
-        type="text"
-        name="quoteby"
-        placeholder="Who said it?"
-        class="edit-form-input"
-      />
-      <input type="text" name="settingsBy" value="{{loginId}}" hidden />
+		<form
+			action="/profiles/edit-profile/{{user.settings._id}}/{{loginId}}"
+			method="post"
+			class="edit-form"
+		>
+			<span class="edit-spans">What's your favorite movie?</span>
+			<input
+				type="text"
+				name="favmovie"
+				placeholder="All time favorite movie?"
+				class="edit-form-input"
+			/>
+			<span class="edit-spans">Tell us a great quote...</span>
+			<input
+				type="text"
+				name="quote"
+				placeholder="Favorite Quote?"
+				class="edit-form-input"
+			/>
+			<span class="edit-spans">...and who said it!</span>
+			<input
+				type="text"
+				name="quoteby"
+				placeholder="Who said it?"
+				class="edit-form-input"
+			/>
+			<input type="text" name="settingsBy" value="{{loginId}}" hidden />
 
-      <input type="submit" value="Save Changes" class="save-changes-btn" />
-    </form>
-  </div>
+			<input type="submit" value="Save Changes" class="save-changes-btn" />
+		</form>
+	</div>
 </div>

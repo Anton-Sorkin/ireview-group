@@ -8,12 +8,38 @@
 	background: linear-gradient(#631d3a, #1a5872);
 }
 
-.total-rating-review {
-	font-size: 2rem;
-	color: #ffffff;
+.user-review-card-cnt {
+	display: flex;
+	flex-direction: column;
+	background: #e0e0e0;
+	padding: 0.5em;
+	border-radius: 0.7em;
+	width: 30vw;
 }
 
-.funka {
-	font-size: 2rem;
-	color: #ffffff;
+.total-score-cnt {
+	padding: 0.4em;
+}
+
+.total-rating-review {
+	font-size: 3rem;
+	font-weight: 700;
+	color: #da4981;
+}
+
+.the-user-review {
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+
+.user-review-by {
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: #303030;
+}
+
+.by-span {
+	font-size: 1.2rem;
+	font-style: italic;
+	font-weight: 400;
 }
