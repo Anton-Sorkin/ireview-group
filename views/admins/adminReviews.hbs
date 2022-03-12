@@ -1,12 +1,14 @@
 <div class="admin-reviews-container">
-  <a href="/admin">Back to main page</a>
+	<span class="back-to-main">
 
-  <ul>
-    {{#each reviews}}
-      <li>{{review}}</li><form
-        action="/admin/reviews/{{_id}}"
-        method="post"
-      ><button type="submit">Delete</button></form>
-    {{/each}}
-  </ul>
+		<a href="/admin" class="admin-links">Back to Admin Dash</a>
+	</span>
+
+	{{#each reviews}}
+		<form action="/admin/reviews/{{_id}}" method="post" class="del-user-form">
+			<span class="user-admin-li">{{reviewedBy.username}} - </span>
+			<span class="user-review-admin"><q>{{reviewedTitle.title}}</q></span>
+			<button type="submit" class="delete-user-btn">Delete</button></form>
+	{{/each}}
+
 </div>

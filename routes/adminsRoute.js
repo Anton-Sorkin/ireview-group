@@ -35,7 +35,10 @@ router.get("/users", adminAuth, async (req, res) => {
 });
 
 router.get("/reviews", adminAuth, async (req, res) => {
-	const reviews = await ReviewsModel.find().lean();
+	const reviews = await ReviewsModel.find()
+		.populate("reviewedBy")
+		.populate("reviewedTitle")
+		.lean();
 
 	const { token } = req.cookies;
 

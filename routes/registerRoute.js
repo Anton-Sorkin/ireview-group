@@ -36,12 +36,14 @@ router.post("/", async (req, res) => {
 				settings: newSettingsResult._id,
 				timestamp: new Date().toString(),
 			});
-			if (utils.validateUser(newUser)) {
-				await newUser.save();
-				console.log(newUser);
-			} else {
-				console.log("error");
-			}
+			// if (utils.validateUser(newUser)) {
+			// 	await newUser.save();
+			// 	console.log(newUser);
+			// } else {
+			// 	console.log("error");
+			// }
+
+			await newUser.save();
 
 			res.redirect("/main");
 		}

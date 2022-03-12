@@ -4,7 +4,7 @@
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	background: linear-gradient(#360f1f, #0b2530);
+	background: linear-gradient(#631d3a, #1a5872);
 }
 
 .profile-card-cnt {
@@ -37,7 +37,6 @@
 	padding: 2em;
 	width: 84vw;
 	gap: 1em;
-
 	background-color: #e0e0e0;
 	margin: 1em;
 }
@@ -80,10 +79,7 @@
 	font-size: 1rem;
 	font-weight: 600;
 	text-decoration: none;
-	// color: #303030;
-
 	color: #ffffff;
-
 	text-decoration: none;
 	background-color: #da4981;
 	padding: 0.4em;
@@ -200,18 +196,6 @@
 	font-size: 1.2rem;
 }
 
-.imdb-span {
-	font-size: 1.2rem;
-	color: red;
-}
-
-.imdb-link {
-	text-decoration: none;
-}
-.imdb-link:visited {
-	color: red;
-}
-
 .review-and-stars {
 	display: flex;
 	flex-direction: column;
@@ -232,13 +216,14 @@
 
 .read-review-cnt {
 	display: flex;
+	flex-direction: row;
+	gap: 0.4em;
 }
 
 .read-review {
 	font-size: 1.2rem;
 	font-weight: 600;
 	text-decoration: none;
-	// color: #303030;
 	color: #ffffff;
 	text-decoration: none;
 	background-color: #da4981;
@@ -248,13 +233,6 @@
 
 .read-review:hover {
 	opacity: 0.6;
-}
-
-//** STARS STARS STARS STARS **//
-
-.stars {
-	font-size: 1.2rem;
-	font-weight: 400;
 }
 
 @media (min-width: 768px) {

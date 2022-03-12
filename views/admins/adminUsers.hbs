@@ -1,13 +1,19 @@
 <div class="admin-users-container">
-  <a href="/admin">Back to main page</a>
 
-  <ul>
-    {{#each users}}
-      <li>{{username}}</li><form action="/admin/users/{{_id}}" method="post">
-        <button type="submit">
-          Delete User
-        </button>
-      </form>
-    {{/each}}
-  </ul>
+	<div class="admin-users-frame">
+
+		<span class="back-to-main">
+			<a href="/admin" class="admin-links">Back to Admin Dash</a>
+		</span>
+
+		{{#each users}}
+			<form action="/admin/users/{{_id}}" method="post" class="del-user-form">
+				<span class="user-admin-li">{{username}}</span>
+				<button type="submit" class="delete-user-btn">
+					Delete User
+				</button>
+			</form>
+		{{/each}}
+	</div>
+
 </div>

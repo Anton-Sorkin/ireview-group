@@ -10,12 +10,10 @@ body {
 	scroll-behavior: smooth;
 	font-family: "Roboto", sans-serif;
 	font-size: 62.5%;
-	// display: flex;
-	// flex-direction: column;
 	color: #303030;
 }
 
-@import "./profiles.scss";
+@import "./profiles-single.scss";
 @import "./login-register.scss";
 @import "./movies-main.scss";
 @import "./fourofour.scss";
@@ -26,5 +24,4 @@ body {
 @import "./write-reviews.scss";
 @import "./review-list.scss";
 @import "./reviews-single.scss";
-@import "./reviews-user.scss"; // @import "./nav-bar.scss";
-// @import "./film-list.scss";
+@import "./reviews-user.scss";

@@ -4,19 +4,19 @@
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	background: linear-gradient(#360f1f, #0b2530);
+	background: linear-gradient(#631d3a, #1a5872);
 }
 
 .members-title {
 	font-size: 3rem;
-	font-weight: 600;
+	font-weight: 700;
 	color: #da4981;
 	margin: 8rem;
 }
 
 .users-list-s-link {
 	text-decoration: none;
-	color: #e0e0e0;
+	color: #ffffff;
 }
 
 .users-list-s-link:hover {
@@ -58,12 +58,6 @@
 
 .username-s-span {
 	font-size: 3rem;
-	color: #e0e0e0;
+	color: #ffffff;
 	margin: 0.3em;
 }
-
-// @media (min-width: 600px) {
-// 	.members-s-cnt {
-// 		width: 30vw;
-// 	}
-// }

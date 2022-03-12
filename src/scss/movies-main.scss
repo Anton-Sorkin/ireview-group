@@ -6,7 +6,7 @@
 	text-align: center;
 	width: 100vw;
 	height: 100vh;
-	background: linear-gradient(#360f1f, #0b2530);
+	background: linear-gradient(#631d3a, #1a5872);
 }
 
 .this-week {
@@ -45,19 +45,26 @@
 	flex-direction: row;
 }
 
-.week-spans {
+.week-spans-cnt {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
 	margin: 2em;
+	gap: 2em;
 }
 
 .a-week {
 	font-size: 1.5rem;
-	font-weight: 400;
+	font-weight: 600;
+	text-decoration: none;
 	color: #ffffff;
 	text-decoration: none;
-	background: #882f54;
-	text-decoration: none;
+	background-color: #da4981;
 	padding: 0.4em;
-	border-radius: 0.2em;
+	border-radius: 0.4em;
+	border: none;
+	width: 8em;
+	cursor: pointer;
 }
 
 .a-week:hover {

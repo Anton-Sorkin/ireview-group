@@ -3,7 +3,7 @@ require("dotenv").config();
 require("./database.js");
 require("./passport.js");
 
-//requirements
+// REQUIREMENTS
 const express = require("express");
 const hbars = require("express-handlebars");
 const jwt = require("jsonwebtoken");
@@ -14,7 +14,7 @@ const passport = require("passport");
 // UTILS
 const utils = require("./utils/utils.js");
 
-//route requirements
+// ROUTE REQUIREMENTS
 const adminsRoute = require("./routes/adminsRoute");
 const errorRoute = require("./routes/errorRoute");
 const profilesRoute = require("./routes/profilesRoute");
@@ -74,6 +74,7 @@ app.use((req, res, next) => {
 	next();
 });
 
+// HOME
 app.get("/", (req, res) => {
 	res.render("home");
 });
@@ -130,8 +131,7 @@ app.get(
 	}
 );
 
-// logout
-
+// LOG OUT
 app.get("/logout", (req, res) => {
 	res.cookie("token", "", { maxAge: 0 });
 	res.redirect("/");

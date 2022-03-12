@@ -1,53 +1,39 @@
 <div class="review-main-cnt">
+
 	<div class="review-frame">
-		<div class="review-card-cnt">
-			<form action="/reviews/write-review" method="post" class="review-form">
-			<select name="reviewedBy">
-				<option disabled selected>Reviewed By</option>
+
+		<form action="/reviews/write-review" method="post" class="review-form">
+			<select name="reviewedBy" hidden>
 				{{#each users}}
 					<option value="{{_id}}">{{username}}</option>
 				{{/each}}
 			</select>
-			<select name="reviewedTitle" class="select-movie-box" class="select-title">
+			<select name="reviewedTitle" class="select-title">
 				<option disabled selected>Choose Movie To Review</option>
 				{{#each movies}}
 					<option value="{{_id}}">{{title}}</option>
 				{{/each}}
-			
-		</div>
-			<div class="rating-div-cnt">
-				</select>
-					<div class="rate-ten-cnt">
-						<span class="rating-to-ten">Choose a Rating 1-10</span>
-					</div>
-					<div class="rating-div">
-					<input type="radio" id="r1" name="rating" value="1" />
-					<label for="r1">1</label>
-					<input type="radio" id="r2" name="rating" value="2" />
-					<label for="r2">2</label>
-					<input type="radio" id="r3" name="rating" value="3" />
-					<label for="r3">3</label>
-					<input type="radio" id="r4" name="rating" value="4" />
-					<label for="r4">4</label>
-					<input type="radio" id="r5" name="rating" value="5" />
-					<label for="r5">5</label>
-					<input type="radio" id="r6" name="rating" value="6" />
-					<label for="r6">6</label>
-					<input type="radio" id="r7" name="rating" value="7" />
-					<label for="r7">7</label>
-					<input type="radio" id="r8" name="rating" value="8" />
-					<label for="r8">8</label>
-					<input type="radio" id="r9" name="rating" value="9" />
-					<label for="r9">9</label>
-					<input type="radio" id="r10" name="rating" value="10" />
-					<label for="r10">10</label>
-			</div>
-			</div>
-			
-			{{! <input type="number" name="rating" min="1" max="10" class="rating-box" /> }}
+			</select>
 
-			<textarea name="review" cols="30" rows="10" class="review-box"></textarea>
-			<input type="submit" value="Post" />
+			<select name="rating" name="rating" class="rating-box">
+				<option disabled selected>Choose a Rating</option>
+				<option value="1" name="rating">1</option>
+				<option value="2" name="rating">2</option>
+				<option value="3" name="rating">3</option>
+				<option value="4" name="rating">4</option>
+				<option value="5" name="rating">5</option>
+				<option value="6" name="rating">6</option>
+				<option value="7" name="rating">7</option>
+				<option value="8" name="rating">8</option>
+				<option value="9" name="rating">9</option>
+				<option value="10" name="rating">10</option>
+			</select>
+
+			<textarea name="review" cols="30" rows="20" class="review-box"></textarea>
+			<div class="post-cnt">
+
+				<input type="submit" value="Post Review" class="post-review" />
+			</div>
 		</form>
 
 	</div>

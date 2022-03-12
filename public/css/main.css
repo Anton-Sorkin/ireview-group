@@ -19,7 +19,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#360f1f, #0b2530);
+  background: linear-gradient(#631d3a, #1a5872);
 }
 
 .profile-card-cnt {
@@ -210,19 +210,6 @@ body {
   font-size: 1.2rem;
 }
 
-.imdb-span {
-  font-size: 1.2rem;
-  color: red;
-}
-
-.imdb-link {
-  text-decoration: none;
-}
-
-.imdb-link:visited {
-  color: red;
-}
-
 .review-and-stars {
   display: flex;
   flex-direction: column;
@@ -243,6 +230,8 @@ body {
 
 .read-review-cnt {
   display: flex;
+  flex-direction: row;
+  gap: 0.4em;
 }
 
 .read-review {
@@ -258,11 +247,6 @@ body {
 
 .read-review:hover {
   opacity: 0.6;
-}
-
-.stars {
-  font-size: 1.2rem;
-  font-weight: 400;
 }
 
 @media (min-width: 768px) {
@@ -295,7 +279,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#360f1f, #0b2530);
+  background: linear-gradient(#631d3a, #1a5872);
 }
 
 .register-main-cnt {
@@ -304,7 +288,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#360f1f, #0b2530);
+  background: linear-gradient(#631d3a, #1a5872);
 }
 
 .login-box-cnt {
@@ -454,7 +438,7 @@ body {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#360f1f, #0b2530);
+  background: linear-gradient(#631d3a, #1a5872);
 }
 
 .this-week {
@@ -493,19 +477,26 @@ body {
   flex-direction: row;
 }
 
-.week-spans {
+.week-spans-cnt {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
   margin: 2em;
+  gap: 2em;
 }
 
 .a-week {
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 600;
+  text-decoration: none;
   color: #ffffff;
   text-decoration: none;
-  background: #882f54;
-  text-decoration: none;
+  background-color: #da4981;
   padding: 0.4em;
-  border-radius: 0.2em;
+  border-radius: 0.4em;
+  border: none;
+  width: 8em;
+  cursor: pointer;
 }
 
 .a-week:hover {
@@ -519,7 +510,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#360f1f, #0b2530);
+  background: linear-gradient(#631d3a, #1a5872);
 }
 
 .fof-fof-cnt {
@@ -683,19 +674,19 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#360f1f, #0b2530);
+  background: linear-gradient(#631d3a, #1a5872);
 }
 
 .members-title {
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #da4981;
   margin: 8rem;
 }
 
 .users-list-s-link {
   text-decoration: none;
-  color: #e0e0e0;
+  color: #ffffff;
 }
 
 .users-list-s-link:hover {
@@ -737,85 +728,206 @@ body {
 
 .username-s-span {
   font-size: 3rem;
-  color: #e0e0e0;
+  color: #ffffff;
   margin: 0.3em;
 }
 
-.admin-page-container {
+/* ADMIN MAIN - ADMIN MAIN - ADMIN MAIN */
+.admin-page-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background: linear-gradient(#631d3a, #1a5872);
+}
+
+.admin-page-frame {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 70vh;
+  gap: 2em;
 }
-.admin-page-container .admin-page-nav {
-  width: 80%;
-  height: 50px;
+
+.admin-page-nav {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  color: white;
 }
-.admin-page-container .admin-page-nav a {
-  color: white;
+
+.logged-in-as {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.admin-links-cnt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.admin-links {
+  font-size: 1.6rem;
+  font-weight: 600;
   text-decoration: none;
-}
-.admin-page-container .admin-page-content {
-  width: 100%;
-  height: 30vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.admin-page-container .admin-page-content form {
-  display: flex;
-  flex-direction: column;
-}
-
-.admin-reviews-container {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(#631d3a, #1a5872);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  font-size: 2rem;
-  color: white;
-}
-.admin-reviews-container a {
-  color: white;
-}
-.admin-reviews-container button {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #da4981;
+  padding: 0.5em;
+  border-radius: 0.4em;
   border: none;
-  color: red;
-  background-color: white;
-  border-radius: 15px;
+  margin: 0.5em;
+  text-align: center;
+  cursor: pointer;
 }
 
+.admin-links:hover {
+  opacity: 0.7;
+}
+
+.admin-page-content {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 88vw;
+  margin: 0;
+  padding: 0;
+  gap: 4em;
+}
+
+.movie-details {
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.4em;
+  border-radius: 0.7em;
+}
+
+.movie-details:focus {
+  outline-style: none;
+}
+
+.movie-descript {
+  ont-family: "Roboto", sans-serif;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.4em;
+  border-radius: 0.7em;
+}
+
+.movie-descript:focus {
+  outline-style: none;
+}
+
+.create-btn-cnt {
+  display: flex;
+  justify-content: center;
+}
+
+.create-movie-btn {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #da4981;
+  padding: 0.5em;
+  border-radius: 0.4em;
+  border: none;
+  margin: 0.5em;
+  text-align: center;
+  cursor: pointer;
+  width: 8em;
+}
+
+/* !ADMIN MAIN - !ADMIN MAIN - !ADMIN MAIN */
+/* ADMIN USERS - ADMIN USERS - ADMIN USERS */
 .admin-users-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background: linear-gradient(#631d3a, #1a5872);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  font-size: 2rem;
-  color: white;
-}
-.admin-users-container a {
-  color: white;
-}
-.admin-users-container button {
-  border: none;
-  color: red;
-  background-color: white;
-  border-radius: 15px;
 }
 
+.admin-users-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  gap: 2em;
+}
+
+.back-to-main {
+  display: flex;
+  justify-content: center;
+}
+
+.del-user-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-admin-li {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0.2em;
+}
+
+.delete-user-btn {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #da4981;
+  padding: 0.5em;
+  border-radius: 0.4em;
+  border: none;
+  margin: 0.5em;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* !ADMIN USERS - !ADMIN USERS - !ADMIN USERS */
+/* ADMIN REVIEWS - ADMIN REVIEWS - ADMIN REVIEWS */
+.admin-reviews-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#631d3a, #1a5872);
+}
+
+.user-review-admin {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+/* !ADMIN REVIEWS - !ADMIN REVIEWS - !ADMIN REVIEWS */
+@media (min-width: 600px) {
+  .admin-form {
+    width: 35vw;
+  }
+}
 .wrapper {
   position: fixed;
   top: 0;
@@ -971,116 +1083,107 @@ input[type=checkbox] {
 .review-frame {
   display: flex;
   flex-direction: column;
-  width: 30vw;
-}
-
-.review-card-cnt {
-  display: flex;
   justify-content: center;
-}
-
-.test-spanner {
-  font-size: 2rem;
-  color: #ffffff;
+  width: 95vw;
 }
 
 .review-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 0;
+  margin: 0;
 }
 
 .select-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #da4981;
+  padding: 0.5em;
+  border-radius: 0.4em;
   border: none;
-  font-size: 1.4rem;
-  font-weight: 700;
+  margin: 0.5em;
+  text-align: center;
+  cursor: pointer;
 }
 
-.rate-ten-cnt {
-  display: flex;
-  justify-content: center;
-  margin: 2em;
+.select-title:focus {
+  outline-style: none;
 }
 
 .rating-to-ten {
   font-size: 1.4rem;
+  margin: 1em;
   font-weight: 700;
   color: #ffffff;
 }
 
-.movie-title-review {
-  font-size: 2rem;
-  color: #ffffff;
+.rating-radio {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 
 .rating-box {
-  border: none;
-  width: 2vw;
-}
-
-.rating-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-}
-
-.rating-div-cnt {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-
-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
   color: #ffffff;
-  font-size: 1rem;
-}
-
-input[type=radio] {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 2.15rem;
-  height: 2.15rem;
-  border-radius: 50%;
-  transform: translateY(-0.075em);
-  display: grid;
-  place-content: center;
-}
-
-input[type=radio]::before {
-  content: "";
-  width: 2.35em;
-  height: 2.35em;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 2.65em 2.65em #f527a6;
-}
-
-input[type=radio]:checked::before {
-  transform: scale(1);
+  text-decoration: none;
+  background-color: #da4981;
+  padding: 0.5em;
+  border-radius: 0.4em;
+  border: none;
+  margin: 0.5em;
+  text-align: center;
+  cursor: pointer;
 }
 
 .rating-box:focus {
-  outline: none;
+  outline-style: none;
 }
 
 .review-box {
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  margin: 0;
+  margin: 0.5em;
 }
 
 .review-box:focus {
   outline: none;
 }
 
+.post-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-review {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #da4981;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  border: none;
+  margin: 1em;
+  width: 8em;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .review-frame {
+    width: 35vw;
+  }
+}
 .review-list-main-cnt {
   display: flex;
   flex-direction: column;
@@ -1158,7 +1261,7 @@ input[type=radio]:checked::before {
 .read-review-li {
   font-size: 1.2rem;
   color: #ffffff;
-  background: #631d3a;
+  background: #da4981;
   text-decoration: none;
   padding: 0.4em;
   border-radius: 0.2em;

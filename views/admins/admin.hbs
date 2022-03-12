@@ -1,25 +1,53 @@
-<div class="admin-page-container">
-  <div class="admin-page-nav">
-    <a href="/admin/users">See userbase</a>
-    <a href="/admin/reviews">See reviews</a>
-    {{#if loginUser}}
-      <p>logged in as: {{loginUser}}</p>
-    {{else}}
-      <p><a href="/">please log in </a></p>
-    {{/if}}
-  </div>
-  <div class="admin-page-content">
-    <form action="/admin" method="post">
-      <input type="text" name="title" required placeholder="title" />
-      <input
-        type="text"
-        name="description"
-        required
-        placeholder="description"
-      />
-      <input type="text" name="genre" required placeholder="genre" />
-      <input type="text" name="img" required placeholder="img" />
-      <button type="submit">Create movie</button>
-    </form>
-  </div>
+<div class="admin-page-cnt">
+	<div class="admin-page-frame">
+
+		<div class="admin-page-nav">
+			{{#if loginUser}}
+				<span class="logged-in-as">Logged in as: {{loginUser}} </span>
+			{{else}}
+				<span class="please-login"><a href="/">Please Login</a></span>
+			{{/if}}
+			<div class="admin-links-cnt">
+
+				<a href="/admin/users" class="admin-links">Userbase</a>
+				<a href="/admin/reviews" class="admin-links">Reviews</a>
+			</div>
+		</div>
+		<div class="admin-page-content">
+			<form action="/admin" method="post" class="admin-form">
+				<input
+					type="text"
+					name="title"
+					required
+					placeholder="Title"
+					class="movie-details"
+				/>
+				<textarea
+					name="description"
+					placeholder="Description"
+					cols="30"
+					rows="10"
+					required
+					class="movie-descript"
+				></textarea>
+				<input
+					type="text"
+					name="genre"
+					required
+					placeholder="Genre"
+					class="movie-details"
+				/>
+				<input
+					type="text"
+					name="img"
+					required
+					placeholder="Img-URL"
+					class="movie-details"
+				/>
+				<div class="create-btn-cnt">
+					<button type="submit" class="create-movie-btn">Create movie</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>

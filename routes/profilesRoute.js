@@ -27,6 +27,7 @@ router.get("/:id", async (req, res) => {
 		.populate("reviewedTitle")
 		.populate("reviewedBy")
 		.lean();
+
 	const pic = await PictureModel.find({ picBy: req.params.id }).lean();
 
 	res.render("profiles/profiles-single", { user, reviews, pic });
@@ -82,6 +83,12 @@ router.post("/edit-profile-pic/:id", async (req, res) => {
 	}
 
 	res.redirect("/profiles");
+});
+
+router.post("/delete-review/:id", async (req, res) => {
+	await ReviewsModel.findByIdAndDelete(req.params.id);
+
+	res.redirect("/admin/reviews");
 });
 
 module.exports = router;
