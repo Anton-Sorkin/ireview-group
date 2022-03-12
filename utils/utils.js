@@ -37,9 +37,9 @@ function validateUser(name) {
   let valid = true;
 
   valid = valid && name.username;
-  valid = valid && name.username.length >= 3;
-  valid = valid && name.username.length <= 20;
-  valid = valid && name.username.indexOf(" ") <= 0;
+  valid = valid && name.username.length > 3;
+  valid = valid && name.username.length < 20;
+  valid = valid && name.username.indexOf(" ") < 0;
 
   return valid;
 }

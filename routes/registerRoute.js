@@ -39,10 +39,10 @@ router.post("/", async (req, res) => {
         await newUser.save();
         console.log(newUser);
       } else {
-        res.redirect("/register");
+        console.log("error");
       }
 
-      await newUser.save();
+      // await newUser.save();
 
       res.redirect("/main");
     }

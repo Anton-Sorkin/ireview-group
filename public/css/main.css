@@ -369,6 +369,7 @@ body {
   color: #303030;
   border: none;
   font-size: 2rem;
+  padding: 0.6em;
   border-radius: 0.4em;
   outline-style: none;
 }
@@ -411,7 +412,7 @@ body {
 @media (min-width: 48em) {
   .username-input,
 .password-input {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 .google-login {
@@ -809,6 +810,7 @@ body {
   font-weight: 600;
   padding: 0.4em;
   border-radius: 0.7em;
+  color: #303030;
 }
 
 .movie-details:focus {
@@ -816,12 +818,13 @@ body {
 }
 
 .movie-descript {
-  ont-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
   border: none;
   font-size: 1.6rem;
   font-weight: 600;
   padding: 0.4em;
   border-radius: 0.7em;
+  color: #303030;
 }
 
 .movie-descript:focus {
@@ -1080,6 +1083,13 @@ input[type=checkbox] {
   height: 100vh;
 }
 
+.user-create-hi {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1em;
+}
+
 .review-frame {
   display: flex;
   flex-direction: column;
@@ -1165,7 +1175,7 @@ input[type=checkbox] {
 }
 
 .post-review {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   text-decoration: none;
   color: #ffffff;
@@ -1342,6 +1352,11 @@ input[type=checkbox] {
   flex-direction: column;
   gap: 4em;
   overflow: scroll;
+}
+
+.stars {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .users-reviews {

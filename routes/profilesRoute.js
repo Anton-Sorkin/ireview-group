@@ -58,6 +58,7 @@ router.post("/edit-profile/:id/:userId", async (req, res) => {
 });
 
 router.post("/edit-profile-pic/:id", async (req, res) => {
+  const user = await UsersModel.findById(req.params.id).lean();
   const image = req.files.image;
   const picBy = req.body.picBy;
 
@@ -77,7 +78,7 @@ router.post("/edit-profile-pic/:id", async (req, res) => {
     res.redirect("/edit-profile");
   }
 
-  res.redirect("/profiles");
+  res.redirect("/profiles/" + user._id);
 });
 
 router.post("/delete-review/:id", async (req, res) => {

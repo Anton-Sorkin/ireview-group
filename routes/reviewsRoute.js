@@ -12,14 +12,21 @@ router.get("/", async (req, res) => {
   res.render("reviews/reviews-list", { movies, users });
 });
 
-router.get("/write-review", async (req, res) => {
+router.get("/write-review/:id", async (req, res) => {
+  const user = await UsersModel.findById(req.params.id).lean();
   const movies = await MoviesModel.find().lean();
-  const users = await UsersModel.find().lean();
 
-  res.render("reviews/write-review", { movies, users });
+  const reviews = await ReviewsModel.find({
+    reviewedBy: req.params.reviewedBy,
+  })
+    .populate("reviewedTitle")
+    .populate("reviewedBy")
+    .lean();
+
+  res.render("reviews/write-review", { movies, user, reviews });
 });
 
-router.post("/write-review", async (req, res) => {
+router.post("/write-review/:loginId", async (req, res) => {
   const newReview = new ReviewsModel({
     review: req.body.review,
     rating: req.body.rating,
@@ -29,10 +36,10 @@ router.post("/write-review", async (req, res) => {
 
   if (utils.validateReviews(newReview)) {
     const result = await newReview.save();
-    console.log("HÄR PRUTTIS!\n", result);
+
     res.redirect("/profiles/" + result.reviewedBy.toString());
   } else {
-    res.redirect("/write-review");
+    console.log("error");
   }
 });
 
