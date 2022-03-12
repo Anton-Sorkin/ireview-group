@@ -810,6 +810,7 @@ body {
   font-weight: 600;
   padding: 0.4em;
   border-radius: 0.7em;
+  color: #303030;
 }
 
 .movie-details:focus {
@@ -817,12 +818,13 @@ body {
 }
 
 .movie-descript {
-  ont-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
   border: none;
   font-size: 1.6rem;
   font-weight: 600;
   padding: 0.4em;
   border-radius: 0.7em;
+  color: #303030;
 }
 
 .movie-descript:focus {
