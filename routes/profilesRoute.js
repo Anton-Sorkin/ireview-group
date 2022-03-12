@@ -2,7 +2,6 @@ const express = require("express");
 const utils = require("../utils/utils.js");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-const Joi = require("joi");
 
 const UsersModel = require("../models/UsersModels.js");
 const SettingsModel = require("../models/SettingsModels.js");

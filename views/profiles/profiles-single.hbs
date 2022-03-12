@@ -6,8 +6,12 @@
 
 			<div class="profile-pic-cnt">
 
-				<img src="/img/defaultuser.png" alt="User" class="profile-pic" />
-
+				{{#if pic}}
+        			<img src="{{#each pic}}{{imageUrl}}{{/each}}" alt="User" class="profile-pic" />
+        		{{else}}
+        		<img src="/img/defaultuser.png" alt="User" class="profile-pic" />
+        		{{/if}}
+				
 			</div>
 			<div class="user-cnt">
 
