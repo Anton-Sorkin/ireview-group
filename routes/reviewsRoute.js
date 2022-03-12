@@ -30,7 +30,7 @@ router.post("/write-review", async (req, res) => {
 
   if (utils.validateReviews(newReview)) {
     const result = await newReview.save();
-    // console.log("HÄR PRUTTIS!\n", result);
+    console.log("HÄR PRUTTIS!\n", result);
     res.redirect("/profiles/" + result.reviewedBy.toString());
   } else {
     res.redirect("/write-review");
