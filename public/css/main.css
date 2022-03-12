@@ -369,6 +369,7 @@ body {
   color: #303030;
   border: none;
   font-size: 2rem;
+  padding: 0.6em;
   border-radius: 0.4em;
   outline-style: none;
 }
@@ -411,7 +412,7 @@ body {
 @media (min-width: 48em) {
   .username-input,
 .password-input {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 .google-login {

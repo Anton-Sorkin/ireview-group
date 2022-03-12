@@ -57,7 +57,6 @@
 	color: #ffffff;
 	font-weight: 700;
 	text-decoration: none;
-	// background-color: #da4981;
 	padding: 0.4em;
 	border-radius: 0.4em;
 }
@@ -95,6 +94,7 @@
 	color: #303030;
 	border: none;
 	font-size: 2rem;
+	padding: 0.6em;
 	border-radius: 0.4em;
 	outline-style: none;
 }
@@ -137,7 +137,7 @@
 @media (min-width: 48em) {
 	.username-input,
 	.password-input {
-		font-size: 3rem;
+		font-size: 2rem;
 	}
 }
 
