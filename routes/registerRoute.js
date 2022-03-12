@@ -1,7 +1,6 @@
 const express = require("express");
 const utils = require("../utils/utils.js");
 const UsersModel = require("../models/UsersModels.js");
-const ReviewsModel = require("../models/ReviewsModels.js");
 const SettingsModel = require("../models/SettingsModels.js");
 
 const router = express.Router();
@@ -36,12 +35,12 @@ router.post("/", async (req, res) => {
         settings: newSettingsResult._id,
         timestamp: new Date().toString(),
       });
-      // if (utils.validateUser(newUser)) {
-      // 	await newUser.save();
-      // 	console.log(newUser);
-      // } else {
-      // 	res.redirect("/register");
-      // }
+      if (utils.validateUser(newUser)) {
+        await newUser.save();
+        console.log(newUser);
+      } else {
+        res.redirect("/register");
+      }
 
       await newUser.save();
 

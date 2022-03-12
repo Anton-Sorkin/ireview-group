@@ -1,6 +1,5 @@
 const express = require("express");
 const utils = require("../utils/utils.js");
-
 const UsersModel = require("../models/UsersModels.js");
 const ReviewsModel = require("../models/ReviewsModels.js");
 const MoviesModel = require("../models/MoviesModels.js");

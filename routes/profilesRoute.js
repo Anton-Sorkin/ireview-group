@@ -1,11 +1,7 @@
 const express = require("express");
 const utils = require("../utils/utils.js");
-const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
-
 const UsersModel = require("../models/UsersModels.js");
 const SettingsModel = require("../models/SettingsModels.js");
-const MoviesModel = require("../models/MoviesModels.js");
 const ReviewsModel = require("../models/ReviewsModels.js");
 const PictureModel = require("../models/PictureModels.js");
 const { getUniqueFilename } = require("../utils/utils.js");
