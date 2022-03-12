@@ -1,3 +1,5 @@
+// GRUPP 12 - OSCAR WELEN, ANTON SORKIN, ELIAS LYXELL
+
 // CONFIG
 require("dotenv").config();
 require("./database.js");
