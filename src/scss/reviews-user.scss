@@ -14,11 +14,11 @@
 	background: #e0e0e0;
 	padding: 0.5em;
 	border-radius: 0.7em;
-	width: 30vw;
+	width: 88vw;
 }
 
 .total-score-cnt {
-	padding: 0.4em;
+	padding: 0.7em;
 }
 
 .total-rating-review {
@@ -27,9 +27,22 @@
 	color: #da4981;
 }
 
+.review-box-cnt {
+	padding: 0.7em;
+	line-height: 3.2em;
+}
+
 .the-user-review {
 	font-size: 1.4rem;
 	font-weight: 400;
+}
+
+.user-box-cnt {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0.7em;
+	justify-content: space-between;
 }
 
 .user-review-by {
@@ -42,4 +55,25 @@
 	font-size: 1.2rem;
 	font-style: italic;
 	font-weight: 400;
+}
+
+.back-to-a {
+	font-size: 1rem;
+	font-weight: 600;
+	text-decoration: none;
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #da4981;
+	padding: 0.4em;
+	border-radius: 0.4em;
+}
+
+.back-to-a:hover {
+	opacity: 0.7;
+}
+
+@media (min-width: 600px) {
+	.user-review-card-cnt {
+		width: 30vw;
+	}
 }

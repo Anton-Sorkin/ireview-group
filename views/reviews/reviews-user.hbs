@@ -15,16 +15,26 @@
 			</div>
 
 			<div class="user-box-cnt">
+				<div class="by-cnt">
+					<span class="user-review-by">
+						Review by:
+					</span>
+					<span class="by-span">
+						{{review.reviewedBy.username}}
+					</span>
+				</div>
+				<div class="back-and-settings-cnt">
+					<span class="back-to">
+						<a
+							href="/reviews/{{review.reviewedTitle._id}}"
+							class="back-to-a"
+						>Back to Reviews</a>
+					</span>
+					<span class="edit-review-span">
 
-				<span class="user-review-by">
-					Review by:
-				</span>
-				<span class="by-span">
-					{{review.reviewedBy.username}}
-				</span>
-				<span class="back-to">
-					<a href="/reviews/{{review.reviewedTitle._id}}">Back to Reviews</a>
-				</span>
+					</span>
+
+				</div>
 			</div>
 
 		</div>

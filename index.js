@@ -40,6 +40,10 @@ app.engine(
 			checkIfIdsAreSame: (idOne, idTwo) => {
 				return idOne.toString() == idTwo.toString();
 			},
+			createStamp: (timestamp) => {
+				const date = new Date(timestamp);
+				return date.toLocaleDateString();
+			},
 		},
 	})
 );
@@ -108,6 +112,7 @@ app.get(
 					googleId,
 					username: req.user.displayName,
 					settings: settingsResult._id,
+					timestamp: new Date().toString(),
 				});
 				const result = await newUser.save();
 

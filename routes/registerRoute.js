@@ -34,6 +34,7 @@ router.post("/", async (req, res) => {
 				secret,
 				reviews,
 				settings: newSettingsResult._id,
+				timestamp: new Date().toString(),
 			});
 
 			await newUser.save();
