@@ -1080,6 +1080,13 @@ input[type=checkbox] {
   height: 100vh;
 }
 
+.user-create-hi {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1em;
+}
+
 .review-frame {
   display: flex;
   flex-direction: column;
@@ -1342,6 +1349,11 @@ input[type=checkbox] {
   flex-direction: column;
   gap: 4em;
   overflow: scroll;
+}
+
+.stars {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .users-reviews {

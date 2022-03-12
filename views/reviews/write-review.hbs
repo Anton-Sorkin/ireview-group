@@ -2,12 +2,14 @@
 
 	<div class="review-frame">
 
-		<form action="/reviews/write-review" method="post" class="review-form">
-			<select name="reviewedBy" hidden>
-				{{#each users}}
-					<option value="{{_id}}">{{username}}</option>
-				{{/each}}
-			</select>
+		<form
+			action="/reviews/write-review/{{loginId}}"
+			method="post"
+			class="review-form"
+		>
+			<span class="user-create-hi">Give us your take, {{user.username}}</span>
+			<input type="text" name="reviewedBy" value="{{user._id}}" hidden />
+
 			<select name="reviewedTitle" class="select-title">
 				<option disabled selected>Choose Movie To Review</option>
 				{{#each movies}}
