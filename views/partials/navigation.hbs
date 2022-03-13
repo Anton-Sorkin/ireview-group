@@ -8,9 +8,13 @@
 		</li>
 		<li class="li-link"><a href="/main">Home</a></li>
 		<li class="li-link"><a href="/reviews">Movie Reviews</a></li>
-		<li class="li-link"><a href="/reviews/write-review/{{loginId}}">Write a
-				Review</a></li>
+		{{#if isLoggedIn}}
+			<li class="li-link"><a href="/reviews/write-review/{{loginId}}">Write a Review</a></li></a>
+		{{/if}}
+		
 		<li class="li-link"><a href="/profiles">Members</a></li>
+		{{#if isLoggedIn}}
 		<li class="li-link"><a href="/logout">Log Out</a></li>
+		{{/if}}
 	</ul>
 </div>
