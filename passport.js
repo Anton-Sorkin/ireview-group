@@ -3,7 +3,6 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 // LOG IN
 passport.serializeUser(function (user, done) {
-	// Optionally add extra code for verifying user or adding extra attributes
 	done(null, user);
 });
 
